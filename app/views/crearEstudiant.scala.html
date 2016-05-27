@@ -25,15 +25,25 @@
                 '_help -> "direccion exacta",
                 'class -> "form-control")
             </div>
-
+               <div class="col-md-4">
+                @textarea(searchForm("Cedula"),
+                '_help -> "Incluyendo ceros",
+                'class -> "form-control")
+            </div>
+            <div class="col-md-4">
+                @textarea(searchForm("Grado"),
+                '_help -> "Required",
+                'class -> "form-control")
+            </div>
+            <div class="col-md-4">
+                @textarea(searchForm("Telefono"),
+                '_help -> "Required",
+                'class -> "form-control")
+            </div>
         </div>
 
 
 
-        @inputText(searchForm("cedula"),
-        '_help -> "requerid",
-        'class -> "form-control"
-        )
 
         @input(searchForm("requerida")) { (id, name, value, args) =>
 
