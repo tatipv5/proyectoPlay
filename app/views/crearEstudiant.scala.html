@@ -21,8 +21,8 @@
                 'class -> "form-control"
                 )</div>
             <div class="col-md-4">
-                @textarea(searchForm("textoAyuda"),
-                '_help -> "Un poco de ayuda nunca es malo",
+                @textarea(searchForm("Direccion"),
+                '_help -> "exacta",
                 'class -> "form-control")
             </div>
 
@@ -30,23 +30,27 @@
 
 
 
-        @inputText(searchForm("tipo"),
-        '_help -> "required",
+        @inputText(searchForm("cedula"),
+        '_help -> "requerid",
         'class -> "form-control"
         )
 
         @input(searchForm("requerida")) { (id, name, value, args) =>
 
         <select name="@name" id="@id" @toHtmlArgs(args)>
-                <option value="true" selected>Sí</option>
-            <option value="false">No</option>
+                <option value="true" selected>I ciclo</option>
+            <option value="false">II ciclo</option>
         </select>
         }
 
     </fieldset>
 
     <div class="form-actions text-center">
-        <input type="submit" class="btn btn-success" value="guardar") >
+        <input type="submit" class="btn btn-success" value="Guardar") >
+    </div>
+    
+     <div class="form-actions text-center">
+        <input type="submit" class="btn btn-success" value="Volver") >
     </div>
     }
 }
