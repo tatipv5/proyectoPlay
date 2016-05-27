@@ -5,6 +5,7 @@ import play.data.Form;
 import play.mvc.*;
 import static play.mvc.Results.ok;
 import models.Estudiant;
+import models.Docente;
 import play.data.FormFactory;
 
 import views.html.*;
@@ -27,6 +28,7 @@ public class HomeController extends Controller {
     public Result index() {
         return ok(index.render("Gestion Instituto"));
     }
+    
     //hola
     //get donde se crea la vEstudiante
     public Result crearEstudiantesGet() {
@@ -35,7 +37,6 @@ public class HomeController extends Controller {
                 pregForm,
                 routes.HomeController.crearEstudiantesPost()));
     }
-    
     //set, donde creo el post para el localhost nos salga en el servidor
      public Result crearEstudiantesPost() {
         Form<Estudiant> pregForm = formFactory.form(Estudiant.class).bindFromRequest();
@@ -50,5 +51,29 @@ public class HomeController extends Controller {
         return ok(crearEstudiant.render("La matricula ha sido creada correctamente", pregForm,
                 routes.HomeController.crearEstudiantesPost()));
     }
+     
+     //Bryam Blanco
+     public Result crearDocenteGet() {
+        Form<Docente> pregForm = formFactory.form(Docente.class);
+        return ok(crearDocente.render("Ingresar docente al sistema",
+                pregForm,
+                routes.HomeController.crearDocentesPost()));  
+    } //Fin del Get crearDocente
+     
+     //set, donde creo el post para el localhost nos salga en el servidor
+     public Result crearDocentesPost() {
+        Form<Docente> pregForm = formFactory.form(Docente.class).bindFromRequest();
+        if (pregForm.hasErrors()) {
+            return badRequest(crearDocente.render("Encontramos errores",
+                    pregForm, routes.HomeController.index()));
+        } else {
+            Docente preg = pregForm.get();
+            preg.save();
+            pregForm = formFactory.form(Docente.class);
+        }
+        return ok(crearDocente.render("EL profesor se ha agregado de forma correcta", pregForm,
+                routes.HomeController.crearDocentesPost()));
+    }//Fin del Post crearDocente
+     
 
-}
+}//Fin de la clase
