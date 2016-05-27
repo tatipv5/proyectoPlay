@@ -23,11 +23,11 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
  
- //picha
+ //picha/picha
     public Result index() {
         return ok(index.render("Gestion Instituto"));
     }
-    
+    //hola
     //get donde se crea la vEstudiante
     public Result crearEstudiantesGet() {
         Form<Estudiant> pregForm = formFactory.form(Estudiant.class);
