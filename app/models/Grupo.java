@@ -22,7 +22,7 @@ public class Grupo extends Model{
     public long id;
     
      @Constraints.Required
-    ArrayList<Estudiante> arrayEstudiante = new ArrayList<Estudiante>();
+    ArrayList<Estudiant> arrayEstudiante = new ArrayList<Estudiant>();
     
    @Constraints.Required
    public int identificador;

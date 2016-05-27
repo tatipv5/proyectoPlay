@@ -15,7 +15,7 @@ import play.data.validation.Constraints;
  * @author usuario
  */
 @Entity
-public class Estudiante extends Model {
+public class Estudiant extends Model {
     
    @Id
     @Constraints.Min(10)
@@ -35,7 +35,7 @@ public class Estudiante extends Model {
 
     
     
-    public static Finder<Long, Estudiante> find = new Finder<Long, Estudiante>(Estudiante.class); 
+    public static Finder<Long, Estudiant> find = new Finder<Long, Estudiant>(Estudiant.class); 
     
 }
 
