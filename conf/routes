@@ -13,17 +13,19 @@ GET     /crearEstudiant           controllers.HomeController.crearEstudiantesGet
 POST    /crearEstudiant           controllers.HomeController.crearEstudiantesPost()
 #Quité las dos rutas extra.
 
-#CrearDocentes
-GET    /crearDocente              controllers.HomeController.crearDocenteGet()
-POST   /crearDocente              controllers.HomeController.crearDocentesPost()
+# CrearDocentes
+GET     /crearDocente          controllers.HomeController.crearDocenteGet()
+POST    /crearDocente           controllers.HomeController.crearDocentesPost()
 
 
+#Listar
+GET     /crearEliminareditar          controllers.HomeController.crearEliminareditar()
 
+#Editar..
+GET     /editarEstudiante/:id       controllers.HomeController.editarEstudianteGet(id: Long)
+POST    /editarEstudiante/:id       controllers.HomeController.editarEstudiantePost(id: Long)
 
-# An example controller showing how to use dependency injection
-GET     /count                      controllers.CountController.count
-# An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
-
+#Eliminar 
+GET     /eliminarEstudiante/:id       controllers.HomeController.EliminarEstudiante(id: Long)
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
