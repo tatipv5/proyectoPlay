@@ -9,6 +9,8 @@ GET     /                           controllers.HomeController.index
 
 
 # CrearEst
+GET     /crearEstudiant           controllers.HomeController.crearEstudiantesGet()
+POST    /crearEstudiant           controllers.HomeController.crearEstudiantesPost()
 GET     /crearEstudiant             controllers.HomeController.crearEstudiantesGet()
 POST    /crearEstudiant             controllers.HomeController.crearEstudiantesPost()
 
