@@ -63,7 +63,7 @@ public class HomeController extends Controller {
         return ok(crearDocente.render("Ingresar docente al sistema",
                 pregForm,
                 routes.HomeController.crearDocentesPost()));  
-    } //Fin del Get crearDocente
+    } //Fin del Get crearDocentecc
      
      //set, donde creo el post para el localhost nos salga en el servidor
      public Result crearDocentesPost() {
