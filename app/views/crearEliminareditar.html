@@ -1,0 +1,28 @@
+@(message: String,  pregs: List[Estudiant])
+@import helper._
+
+
+@main(message) {
+    <h1> Lista de estudiantes </h1>
+
+<ul class="list-group">
+@for(preg <- pregs) {
+  <li class="list-group-item" >@preg.texto 
+      
+      <div class="btn-group pull-right" role="group" aria-label="...">
+        <a href="@routes.HomeController.editarEstudiantePost(estu.id)" 
+           class="btn btn-success">Editar</a>
+           <a href="@routes.HomeController.EliminarEstudiante(estu.id)" 
+              class="btn btn-danger">Eliminar</a>
+      </div>
+      
+      
+      
+      
+  </li>
+}
+</ul>
+
+    
+    
+}
