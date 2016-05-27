@@ -9,8 +9,8 @@ GET     /                           controllers.HomeController.index
 
 
 # CrearEst
-GET     /crearEstudiante             controllers.HomeController.crearEstudiantesGet()
-POST    /crearEstudiante             controllers.HomeController.crearEstudiantesPost()
+GET     /crearEstudiant             controllers.HomeController.crearEstudiantesGet()
+POST    /crearEstudiant             controllers.HomeController.crearEstudiantesPost()
 
 
 # An example controller showing how to use dependency injection
