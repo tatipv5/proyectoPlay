@@ -58,32 +58,31 @@ public class HomeController extends Controller {
 
      //Bryam Blanco
      public Result crearDocenteGet() {
-        Form<Docente> pregForm = formFactory.form(Docente.class);
+        Form<Docente> docenForm = formFactory.form(Docente.class);
         return ok(crearDocente.render("Ingresar docente al sistema",
-                pregForm,
+                docenForm,
                 routes.HomeController.crearDocentesPost()));  
     } //Fin del Get crearDocentecc
      
      //set, donde creo el post para el localhost nos salga en el servidor
      public Result crearDocentesPost() {
-        Form<Docente> pregForm = formFactory.form(Docente.class).bindFromRequest();
-        if (pregForm.hasErrors()) {
+        Form<Docente> docenForm = formFactory.form(Docente.class).bindFromRequest();
+        if (docenForm.hasErrors()) {
             return badRequest(crearDocente.render("Encontramos errores",
-                    pregForm, routes.HomeController.index()));
+                    docenForm, routes.HomeController.index()));
         } else {
-            Docente preg = pregForm.get();
-            preg.save();
-            pregForm = formFactory.form(Docente.class);
+            Docente docen = docenForm.get();
+            docen.save();
+            docenForm = formFactory.form(Docente.class);
         }
-        return ok(crearDocente.render("EL profesor se ha agregado de forma correcta", pregForm,
+        return ok(crearDocente.render("EL profesor se ha agregado de forma correcta", docenForm,
                 routes.HomeController.crearDocentesPost()));
     }//Fin del Post crearDocente
      
 
       public Result listaEstudiantes() {
-        List<Estudiant> estu = Estudiant.find.all();
-
-        return ok(crearEliminareditar.render("Listado de estudiantes", estu));
+       List<Estudiant>estud=Estudiant.find.all();
+       return ok(crearEliminarEditar.render("Listado de estudiantes", estud));
     }
      
      public Result editarEstudianteGet(Long id) {
