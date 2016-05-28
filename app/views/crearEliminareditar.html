@@ -6,8 +6,8 @@
     <h1> Lista de estudiantes </h1>
 
 <ul class="list-group">
-@for(preg <- pregs) {
-  <li class="list-group-item" >@preg.texto 
+@for(EstuForm <- pregs) {
+  <li class="list-group-item" >@EstuForm.texto 
       
       <div class="btn-group pull-right" role="group" aria-label="...">
         <a href="@routes.HomeController.editarEstudiantePost(estu.id)" 
