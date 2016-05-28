@@ -19,7 +19,7 @@ POST    /crearDocente           controllers.HomeController.crearDocentesPost()
 
 
 #Listar
-GET     /crearEliminareditar          controllers.HomeController.crearEliminareditar()
+GET     /listaEstudiantes         controllers.HomeController.listaEstudiantes()
 
 #Editar..
 GET     /editarEstudiante/:id       controllers.HomeController.editarEstudianteGet(id: Long)

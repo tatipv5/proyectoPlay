@@ -9,7 +9,6 @@ import models.Estudiant;
 import models.Docente;
 import play.data.FormFactory;
 import static play.mvc.Results.ok;
-
 import views.html.*;
 
 /**
@@ -112,12 +111,12 @@ public class HomeController extends Controller {
         instancia.direccion = estu.direccion;
         instancia.telefono = estu.telefono;
         instancia.save();
-        return redirect(routes.HomeController.crearEliminareditar());
+        return redirect(routes.HomeController.listaEstudiantes());
     }
      public Result EliminarEstudiante(Long id) {
         Estudiant instancia = Estudiant.find.byId(id);
         instancia.delete();
-        return redirect(routes.HomeController.crearEliminareditar());
+        return redirect(routes.HomeController.listaEstudiantes());
     } 
      
 }//Fin de la clase
