@@ -1,13 +1,9 @@
 @(message: String, estudi: List[Estudiant],searchForm:Form[Estudiant])
 @import helper._
 
-
-
 @main(message) {
 
-
 <h1> Lista de estudiantes </h1>
-
 
 <ul class="list-group">
     @for(estu <- estudi) {

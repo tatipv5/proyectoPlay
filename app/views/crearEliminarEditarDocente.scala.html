@@ -1,0 +1,20 @@
+@(message: String, docent: List[Docente])
+@import helper._
+
+@main(message) {
+
+<h1> Lista de docentes </h1>
+
+<ul class="list-group">
+    @for(docen <- docent) {
+    <li class="list-group-item" >@docen.nombre
+        <div class="btn-group pull-right" role="group" aria-label="...">
+            <a href="@routes.HomeController.editarDocentesPost(docen.id)" 
+               class="btn btn-success">Editar</a>
+            
+        </div>
+
+    </li>
+    }
+</ul>
+}

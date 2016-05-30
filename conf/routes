@@ -4,19 +4,12 @@
 
 # An example controller showing a sample home page
 
-
 GET     /                           controllers.HomeController.index
-
 
 # CrearEstudiantes
 GET     /crearEstudiant           controllers.HomeController.crearEstudiantesGet()
 POST    /crearEstudiant           controllers.HomeController.crearEstudiantesPost()
 #Quité las dos rutas extra.
-
-# CrearDocentes
-GET     /crearDocente          controllers.HomeController.crearDocenteGet()
-POST    /crearDocente           controllers.HomeController.crearDocentesPost()
-
 
 #Listar
 GET     /listaEstudiante        controllers.HomeController.listaEstudiantes()
@@ -27,5 +20,22 @@ POST    /editarEstudiante/:id       controllers.HomeController.editarEstudianteP
 
 #Eliminar 
 GET     /eliminarEstudiante/:id       controllers.HomeController.EliminarEstudiante(id: Long)
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+# CrearDocentes  
+GET     /crearDocente          controllers.HomeController.crearDocenteGet()
+POST    /crearDocente           controllers.HomeController.crearDocentesPost()
+
+#Listar
+GET     /listaDocentes        controllers.HomeController.listaDocentes()
+
+#Editar  :id
+GET     /editarDocentesGet/:id        controllers.HomeController.editarDocentesGet(id: Long)
+POST    /editarDocentesPost/:id       controllers.HomeController.editarDocentesPost(id: Long)
+
+#Eliminar 
+GET     /eliminarDocente/:id       controllers.HomeController.EliminarDocente(id: Long)
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
