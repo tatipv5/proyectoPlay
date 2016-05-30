@@ -13,7 +13,11 @@
                class="btn btn-success">Editar</a>
                  <a href="@routes.HomeController.EliminarEstudiante(estu.id)" 
                class="btn btn-success">Eliminar</a>
-            
+            <div class="form-actions text-center">
+        <input type="submit" class="btn btn-success" value="Buscar") > 
+        <a href="@routes.HomeController.BuscarEstudiantePost(estu.id)" 
+               class="btn btn-success">Buscar</a>
+    </div>
         </div>
 
     </li>
@@ -33,10 +37,6 @@
 
 
 
-<div class="form-actions text-center">
-        <input type="submit" class="btn btn-success" value="Buscar") > 
-        <a href="@routes.HomeController.editarEstudiantePost(estu.id)" 
-               class="btn btn-success">Editar</a>
-    </div>
+
 
 }
