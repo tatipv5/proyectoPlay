@@ -23,6 +23,11 @@ GET     /eliminarEstudiante/:id       controllers.HomeController.EliminarEstudia
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
+#Buscar..NUEVO
+GET     /buscarEstudiante/:id       controllers.HomeController.BuscarEstudianteGet(id: Long)
+POST    /buscarEstudiante/:id       controllers.HomeController. BuscarEstudiantePost(id: Long)
+
+
 
 # CrearDocentes  
 GET     /crearDocente          controllers.HomeController.crearDocenteGet()

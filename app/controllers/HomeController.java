@@ -121,8 +121,7 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.listaEstudiantes());
     } 
      
-<<<<<<< HEAD
-     
+
      //A partir de acá trabajamos la Lista, Editar y Eliminar de Docentes.
      public Result listaDocentes() {
         List<Docente>estud=Docente.find.all();
@@ -164,13 +163,28 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.listaDocentes());
     } 
      
-=======
+
      public Result BuscarEstudianteGet(Long id){
         Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
         return ok(crearEstudiant.render("Estudiante",
-                EstuForm, routes.HomeController.editarEstudiantePost(id)));
+                EstuForm, routes.HomeController.BuscarEstudiantePost(id)));
      }
->>>>>>> origin/master
+
+     public Result BuscarEstudiantePost(Long id) {
+       Estudiant instancia = Estudiant.find.byId(id);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
+        ).fill(instancia).bindFromRequest();
+
+        if (EstuForm .hasErrors()) {
+            return badRequest(crearEstudiant.render(
+                    "Encontramos errores", EstuForm ,
+                    routes.HomeController.BuscarEstudiantePost(id)
+            ));
+        }
+        
+    
+        return redirect(routes.HomeController.listaEstudiantes());
+    }
      
 }//Fin de la clase
