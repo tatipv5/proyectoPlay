@@ -1,21 +1,12 @@
-@*
-* This template takes a single argument, a String containing a
-* message to display.
-*@
-@(message: String)
+@(message: String )
 
-@*
-* Call the `main` template with two arguments. The first
-* argument is a `String` with the title of the page, the second
-* argument is an `Html` object containing the body of the page.
-*@
-@main("Welcome to Play") {
+@main(message) {
+<div class="container">
+   <div class="btn-group" role="group" aria-label="...">
+    <a href="@routes.HomeController.listaEstudiantes()" class="btn btn-default">Listar</a>
+      <a href="@routes.HomeController.crearEstudiantesGet()" class="btn btn-success">Crear</a>
 
-@*
- * Get an `Html` object by calling the built-in Play welcome
- * template and passing a `String` message.
- *@
-@play20.welcome(message, style = "Java")
-
+   </div>
+</div>
 }
 

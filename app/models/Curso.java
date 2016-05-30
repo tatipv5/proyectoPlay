@@ -21,7 +21,7 @@ public class Curso extends Model {
     
     @Id
     @Constraints.Min(10)
-    public long id;
+    public Long id;
 
     @Constraints.Required
     public String identificador;
