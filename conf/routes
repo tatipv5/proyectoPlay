@@ -25,7 +25,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 #Buscar..NUEVO
 GET     /buscarEstudiante/:id       controllers.HomeController.BuscarEstudianteGet(id: Long)
-POST    /buscarEstudiante/:id       controllers.HomeController. BuscarEstudiantePost(id: Long)
+POST    /buscarEstudiante/:id       controllers.HomeController.BuscarEstudiantePost(id: Long)
 
 
 
