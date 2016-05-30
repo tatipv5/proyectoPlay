@@ -123,7 +123,6 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.listaEstudiantes());
     } 
      
-<<<<<<< HEAD
      
      //A partir de acá trabajamos la Lista, Editar y Eliminar de Docentes.
      public Result listaDocentes() {
@@ -151,7 +150,7 @@ public class HomeController extends Controller {
             ));
         }  
       Docente docen = EstuForm.get();
-        instancia.id = docen.id;
+        //instancia.id = docen.id;
         instancia.nombre= docen.nombre;
         instancia.materia = docen.materia;
         instancia.cedula = docen.cedula;
@@ -166,13 +165,13 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.listaDocentes());
     } 
      
-=======
+
      public Result BuscarEstudianteGet(Long id){
         Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
         return ok(crearEstudiant.render("Estudiante",
                 EstuForm, routes.HomeController.editarEstudiantePost(id)));
      }
->>>>>>> origin/master
+
      
 }//Fin de la clase

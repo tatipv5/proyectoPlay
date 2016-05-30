@@ -39,6 +39,5 @@ public class Estudiant extends Model {
     
     public static Finder<Long, Estudiant> find = new Finder<Long, Estudiant>(Estudiant.class); 
     
-    public static Finder<Long, Estudiant> find = new Finder<Long, Estudiant>(Estudiant.class);
 }
 
