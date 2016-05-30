@@ -34,7 +34,7 @@ public class HomeController extends Controller {
     //get donde se crea la vEstudiante
     public Result crearEstudiantesGet() {
         Form<Estudiant> EstuForm  = formFactory.form(Estudiant.class);
-        return ok(crearEstudiant.render("Matricular Estudiante",
+        return ok(crearEstudiant.render("Matricular Estudiante.",
                EstuForm,
                 routes.HomeController.crearEstudiantesPost()));
     }//Fin
@@ -42,8 +42,10 @@ public class HomeController extends Controller {
     //set, donde creo el post para el localhost nos salga en el servidor
      public Result crearEstudiantesPost() {
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).bindFromRequest();
+       
         if (EstuForm.hasErrors()) {
-            return badRequest(crearEstudiant.render("Encontramos errores",
+            
+            return badRequest(crearEstudiant.render( EstuForm.toString(),
                     EstuForm, routes.HomeController.index()));
         } else {
             Estudiant estu = EstuForm.get();
@@ -81,7 +83,8 @@ public class HomeController extends Controller {
      
       public Result listaEstudiantes() {
        List<Estudiant>estud=Estudiant.find.all();
-       return ok(crearEliminarEditar.render("Listado de estudiantes", estud));
+       Form<Estudiant> EstuForm  = formFactory.form(Estudiant.class);
+       return ok(crearEliminarEditar.render("Listado de estudiantes", estud,EstuForm));
     }
      
      public Result editarEstudianteGet(Long id) {

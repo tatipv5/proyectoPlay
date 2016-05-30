@@ -12,7 +12,7 @@ POST    /crearEstudiant           controllers.HomeController.crearEstudiantesPos
 #Quité las dos rutas extra.
 
 #Listar
-GET     /listaEstudiantes         controllers.HomeController.listaEstudiantes()
+GET     /listaEstudiante        controllers.HomeController.listaEstudiantes()
 
 #Editar..
 GET     /editarEstudiante/:id       controllers.HomeController.editarEstudianteGet(id: Long)

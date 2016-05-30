@@ -1,4 +1,4 @@
-@(message: String, estudi: List[Estudiant])
+@(message: String, estudi: List[Estudiant],searchForm:Form[Estudiant])
 @import helper._
 
 @main(message) {
@@ -11,10 +11,31 @@
         <div class="btn-group pull-right" role="group" aria-label="...">
             <a href="@routes.HomeController.editarEstudiantePost(estu.id)" 
                class="btn btn-success">Editar</a>
+                 <a href="@routes.HomeController.EliminarEstudiante(estu.id)" 
+               class="btn btn-success">Eliminar</a>
             
         </div>
 
     </li>
     }
 </ul>
+
+
+ <fieldset>
+
+        <div class="row">
+            <div class="col-md-4">  @inputText( 
+                searchForm("buscar"),
+                '_label -> "Busca el estudiante",
+                '_help -> "Ingrese el id",
+                'class -> "form-control"
+                )</div>
+
+
+
+
+<div class="form-actions text-center">
+        <input type="submit" class="btn btn-success" value="Buscar") > 
+    </div>
+
 }

@@ -19,8 +19,8 @@ public class Estudiant extends Model {
     
    @Id
     @Constraints.Min(10)
-    public long id;
-
+    public Long id;
+//erroren long
     @Constraints.Required
     public String nombre;
      
@@ -33,6 +33,12 @@ public class Estudiant extends Model {
         @Constraints.Required
     public String telefono;
         
+         public boolean requerida;
+    public String textoAyuda;
+    
+    
+    public static Finder<Long, Estudiant> find = new Finder<Long, Estudiant>(Estudiant.class); 
+    
     public static Finder<Long, Estudiant> find = new Finder<Long, Estudiant>(Estudiant.class);
 }
 

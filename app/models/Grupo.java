@@ -19,7 +19,7 @@ import play.data.validation.Constraints;
 public class Grupo extends Model{
     @Id
     @Constraints.Min(10)
-    public long id;
+    public Long id;
     
      @Constraints.Required
     ArrayList<Estudiant> arrayEstudiante = new ArrayList<Estudiant>();
