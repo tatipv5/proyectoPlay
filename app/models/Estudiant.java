@@ -20,7 +20,7 @@ public class Estudiant extends Model {
    @Id
     @Constraints.Min(10)
     public Long id;
-
+//erroren long
     @Constraints.Required
     public String nombre;
      
