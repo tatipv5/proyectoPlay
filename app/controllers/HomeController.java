@@ -108,10 +108,12 @@ public class HomeController extends Controller {
         }
         
       Estudiant estu = EstuForm.get();
-        instancia.id = estu.id;
+        //instancia.id = estu.id;
         instancia.nombre= estu.nombre;
         instancia.direccion = estu.direccion;
+        instancia.cedula=estu.cedula;
         instancia.telefono = estu.telefono;
+        instancia.requerida=estu.requerida;
         instancia.save();
         return redirect(routes.HomeController.listaEstudiantes());
     }
