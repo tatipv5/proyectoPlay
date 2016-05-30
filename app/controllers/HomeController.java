@@ -29,7 +29,7 @@ public class HomeController extends Controller {
     public Result index() {
         return ok(index.render("Gestion Instituto"));
     }
-    
+    //Maria
     //hola
     //get donde se crea la vEstudiante
     public Result crearEstudiantesGet() {
@@ -120,5 +120,12 @@ public class HomeController extends Controller {
         instancia.delete();
         return redirect(routes.HomeController.listaEstudiantes());
     } 
+     
+     public Result BuscarEstudianteGet(Long id){
+        Estudiant instancia = Estudiant.find.byId(id);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
+        return ok(crearEstudiant.render("Estudiante",
+                EstuForm, routes.HomeController.editarEstudiantePost(id)));
+     }
      
 }//Fin de la clase
