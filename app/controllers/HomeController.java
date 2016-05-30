@@ -135,7 +135,7 @@ public class HomeController extends Controller {
                 EstuForm, routes.HomeController.editarDocentesPost(id)));
     }
      
-     //Esto es un cometario prueba.
+     //Esto es un cometario prueba.{
      public Result editarDocentesPost(Long id) {
        Docente instancia = Docente.find.byId(id);
         Form<Docente> EstuForm = formFactory.form(Docente.class
