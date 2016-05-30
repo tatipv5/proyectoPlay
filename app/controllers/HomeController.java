@@ -47,7 +47,7 @@ public class HomeController extends Controller {
        
         if (EstuForm.hasErrors()) {
             
-            return badRequest(crearEstudiant.render( EstuForm.toString(),
+            return badRequest(crearEstudiant.render( "Se han encontrado errores",
                     EstuForm, routes.HomeController.index()));
         } else {
             Estudiant estu = EstuForm.get();
