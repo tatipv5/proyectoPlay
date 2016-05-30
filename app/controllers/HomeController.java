@@ -1,3 +1,4 @@
+     
 package controllers;
 
 import java.util.List;
@@ -123,62 +124,10 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.listaEstudiantes());
     } 
      
-<<<<<<< HEAD
+
      
 =======
 
->>>>>>> origin/master
-     //A partir de acá trabajamos la Lista, Editar y Eliminar de Docentes.
-     public Result listaDocentes() {
-        List<Docente>estud=Docente.find.all();
-        return ok(crearEliminarEditarDocente.render("Listado de estudiantes", estud));
-    }
-     
-     public Result editarDocentesGet(Long id) {
-        Docente instancia = Docente.find.byId(id);
-        Form<Docente> EstuForm = formFactory.form(Docente.class).fill(instancia);
-        return ok(crearDocente.render("Formulario de docentes",
-                EstuForm, routes.HomeController.editarDocentesPost(id)));
-    }
-     
-     //Esto es un cometario prueba.{
-     public Result editarDocentesPost(Long id) {
-       Docente instancia = Docente.find.byId(id);
-        Form<Docente> EstuForm = formFactory.form(Docente.class
-        ).fill(instancia).bindFromRequest();
-
-        if (EstuForm .hasErrors()) {
-            return badRequest(crearDocente.render(
-                    "Encontramos errores", EstuForm ,
-                    routes.HomeController.editarDocentesPost(id)
-            ));
-        }  
-      Docente docen = EstuForm.get();
-        //instancia.id = docen.id;
-        instancia.nombre= docen.nombre;
-        instancia.materia = docen.materia;
-        instancia.cedula = docen.cedula;
-        instancia.telefono = docen.telefono;
-        instancia.save();
-        return redirect(routes.HomeController.listaDocentes());
-    }
-     
-     public Result EliminarDocente(Long id) {
-        Docente instancia = Docente.find.byId(id);
-        instancia.delete();
-        return redirect(routes.HomeController.listaDocentes());
-    } 
-     
-
-     public Result BuscarEstudianteGet(Long id){
-        Estudiant instancia = Estudiant.find.byId(id);
-        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
-        return ok(crearEstudiant.render("Estudiante",
-                EstuForm, routes.HomeController.BuscarEstudiantePost(id)));
-     }
-
-<<<<<<< HEAD
-=======
      public Result BuscarEstudiantePost(Long id) {
        Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
@@ -194,6 +143,19 @@ public class HomeController extends Controller {
     
         return redirect(routes.HomeController.listaEstudiantes());
     }
->>>>>>> origin/master
-     
-}//Fin de la clase
+
+     public Result BuscarEstudiantePost(Long id) {
+       Estudiant instancia = Estudiant.find.byId(id);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
+        ).fill(instancia).bindFromRequest();
+
+        if (EstuForm .hasErrors()) {
+            return badRequest(crearEstudiant.render(
+                    "Encontramos errores", EstuForm ,
+                    routes.HomeController.BuscarEstudiantePost(id)
+            ));
+        }
+        
+    
+        return redirect(routes.HomeController.listaEstudiantes());
+    }
