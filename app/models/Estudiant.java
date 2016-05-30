@@ -34,7 +34,7 @@ public class Estudiant extends Model {
     public String telefono;
         
          public boolean requerida;
-    public String textoAyuda;
+   // public String textoAyuda;
     
     
     public static Finder<Long, Estudiant> find = new Finder<Long, Estudiant>(Estudiant.class); 

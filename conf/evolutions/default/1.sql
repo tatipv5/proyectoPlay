@@ -25,7 +25,6 @@ create table estudiant (
   cedula                        varchar(255),
   telefono                      varchar(255),
   requerida                     tinyint(1) default 0,
-  texto_ayuda                   varchar(255),
   constraint pk_estudiant primary key (id)
 );
 
