@@ -32,10 +32,7 @@ public class Estudiant extends Model {
  
         @Constraints.Required
     public String telefono;
-
-    
-    
-    public static Finder<Long, Estudiant> find = new Finder<Long, Estudiant>(Estudiant.class); 
-    
+        
+    public static Finder<Long, Estudiant> find = new Finder<Long, Estudiant>(Estudiant.class);
 }
 
