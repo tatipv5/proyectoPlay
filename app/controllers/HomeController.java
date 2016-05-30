@@ -84,7 +84,8 @@ public class HomeController extends Controller {
 
       public Result listaEstudiantes() {
        List<Estudiant>estud=Estudiant.find.all();
-       return ok(crearEliminarEditar.render("Listado de estudiantes", estud));
+       Form<Estudiant> EstuForm  = formFactory.form(Estudiant.class);
+       return ok(crearEliminarEditar.render("Listado de estudiantes", estud,EstuForm));
     }
      
      public Result editarEstudianteGet(Long id) {
