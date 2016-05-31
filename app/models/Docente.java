@@ -21,9 +21,6 @@ public class Docente extends Model{
     @Constraints.Min(10)
     public Long id;
     
-    @Constraints.Required
-    ArrayList<Curso> arrayCurso = new ArrayList<Curso>();
-    
     //MARIA
     @Constraints.Required
     public String nombre;

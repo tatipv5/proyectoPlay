@@ -15,26 +15,28 @@
 
         <div class="row">
             <div class="col-md-4">  @inputText( 
-                searchForm("texto"),
+                searchForm("nombre"),
                 '_label -> "Nombre del profesor:",
                 '_help -> "Nombre completo.",
                 'class -> "form-control"
                 )</div>
+            
+             <div class="col-md-4">
+                @textarea(searchForm("materia"),
+                '_help -> "Requerido.",
+                'class -> "form-control")
+            </div>
             <div class="col-md-4">
-                @textarea(searchForm("Cédula de identidad:"),
+                @textarea(searchForm("cedula"),
                 '_help -> "Formato de 9 dígitos",
                 'class -> "form-control")
             </div>
                <div class="col-md-4">
-                @textarea(searchForm("Número telefónico:"),
+                @textarea(searchForm("telefono"),
                 '_help -> "+506",
                 'class -> "form-control")
             </div>
-            <div class="col-md-4">
-                @textarea(searchForm("Materia"),
-                '_help -> "Requerido.",
-                'class -> "form-control")
-            </div>
+           
         
 
     </fieldset>

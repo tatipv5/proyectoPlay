@@ -12,7 +12,7 @@ POST    /crearEstudiant           controllers.HomeController.crearEstudiantesPos
 #Quité las dos rutas extra.
 
 #Listar
-GET     /listaEstudiante        controllers.HomeController.listaEstudiantes()
+GET     /listaEstudiantes        controllers.HomeController.listaEstudiantes()
 
 #Editar..
 GET     /editarEstudiante/:id       controllers.HomeController.editarEstudianteGet(id: Long)
@@ -29,16 +29,18 @@ POST    /buscarEstudiante/:id       controllers.HomeController.BuscarEstudianteP
 
 
 
-# CrearDocentes  
-GET     /crearDocente          controllers.HomeController.crearDocenteGet()
-POST    /crearDocente           controllers.HomeController.crearDocentesPost()
-
-#Listar
+#Listar docente
 GET     /listaDocentes        controllers.HomeController.listaDocentes()
 
-#Editar  :id
-GET     /editarDocentesGet/:id        controllers.HomeController.editarDocentesGet(id: Long)
-POST    /editarDocentesPost/:id       controllers.HomeController.editarDocentesPost(id: Long)
+# CrearDocentes  
+GET     /crearDocente           controllers.HomeController.crearDocenteGet()
+POST    /crearDocente           controllers.HomeController.crearDocentesPost()
+
+
+
+#Editar
+GET     /editarDocentes/:id       controllers.HomeController.editarDocenteGet(id: Long)
+POST    /editarDocentes/:id       controllers.HomeController.EditarDocentePost(id: Long)
 
 #Eliminar 
 GET     /eliminarDocente/:id       controllers.HomeController.EliminarDocente(id: Long)
