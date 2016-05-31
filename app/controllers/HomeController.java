@@ -91,6 +91,28 @@ public class HomeController extends Controller {
         instancia.save();
         return redirect(routes.HomeController.listaEstudiantes());
     }
+       public Result BuscarEstudianteGet(Long id) {
+        Estudiant instancia = Estudiant.find.byId(id);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
+        return ok(crearEstudiant.render("estudiante",
+                EstuForm, routes.HomeController.BuscarEstudiantePost(id)));
+    }
+
+     public Result BuscarEstudiantePost(Long id) {
+       Estudiant instancia = Estudiant.find.byId(id);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
+        ).fill(instancia).bindFromRequest();
+
+        if (EstuForm .hasErrors()) {
+            return badRequest(crearEstudiant.render(
+                    "Encontramos errores", EstuForm ,
+                    routes.HomeController.BuscarEstudiantePost(id)
+            ));
+        }
+        
+    
+        return redirect(routes.HomeController.listaEstudiantes());
+    }
      
      
      //DOCENTE
@@ -163,29 +185,7 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.listaDocentes());
     } 
 
-     public Result BuscarEstudianteGet(Long id) {
-        Estudiant instancia = Estudiant.find.byId(id);
-        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
-        return ok(crearEstudiant.render("estudiante",
-                EstuForm, routes.HomeController.BuscarEstudiantePost(id)));
-    }
-
-     public Result BuscarEstudiantePost(Long id) {
-       Estudiant instancia = Estudiant.find.byId(id);
-        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
-        ).fill(instancia).bindFromRequest();
-
-        if (EstuForm .hasErrors()) {
-            return badRequest(crearEstudiant.render(
-                    "Encontramos errores", EstuForm ,
-                    routes.HomeController.BuscarEstudiantePost(id)
-            ));
-        }
-        
-    
-        return redirect(routes.HomeController.listaEstudiantes());
-    }
-     
+ 
      public Result BuscarDocenteGet(Long id) {
         Docente instancia = Docente.find.byId(id);
         Form<Docente> EstuForm = formFactory.form(Docente.class).fill(instancia);
@@ -208,6 +208,32 @@ public class HomeController extends Controller {
     
         return redirect(routes.HomeController.listaEstudiantes());
     }
-
-    
+     
+     //Informacion estudiante
+    public Result InformacionEstudianteGet(Long id) {
+        Estudiant instancia = Estudiant.find.byId(id);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
+        return ok(informacionEstudiante.render("Informacion Estudiantes",
+                EstuForm, routes.HomeController.InformacionEstudiantePost(id)));
+    }
+     public Result InformacionEstudiantePost(Long id) {
+       Estudiant instancia = Estudiant.find.byId(id);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
+        ).fill(instancia).bindFromRequest();
+        if (EstuForm .hasErrors()) {
+            return badRequest(informacionEstudiante.render(
+                    "Encontramos errores", EstuForm ,
+                    routes.HomeController.InformacionEstudianteGet(id)
+            ));
+        }
+//      Estudiant estu = EstuForm.get();
+//        //instancia.id = estu.id;
+//        instancia.nombre= estu.nombre;
+//        instancia.direccion = estu.direccion;
+//        instancia.cedula=estu.cedula;
+//        instancia.telefono = estu.telefono;
+//        instancia.requerida=estu.requerida;
+//        instancia.save();
+        return redirect(routes.HomeController.listaEstudiantes());
+    }
 }
