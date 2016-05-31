@@ -208,6 +208,9 @@ public class HomeController extends Controller {
     
         return redirect(routes.HomeController.listaEstudiantes());
     }
+
+     
+    
      
      //Informacion estudiante
     public Result InformacionEstudianteGet(Long id) {
@@ -224,6 +227,34 @@ public class HomeController extends Controller {
             return badRequest(informacionEstudiante.render(
                     "Encontramos errores", EstuForm ,
                     routes.HomeController.InformacionEstudianteGet(id)
+            ));
+        }
+//      Estudiant estu = EstuForm.get();
+//        //instancia.id = estu.id;
+//        instancia.nombre= estu.nombre;
+//        instancia.direccion = estu.direccion;
+//        instancia.cedula=estu.cedula;
+//        instancia.telefono = estu.telefono;
+//        instancia.requerida=estu.requerida;
+//        instancia.save();
+        return redirect(routes.HomeController.listaEstudiantes());
+    }
+     
+      //Informacion docente
+    public Result InformacionDocentesGet(Long id) {
+        Docente instancia = Docente.find.byId(id);
+        Form<Docente> DocenForm = formFactory.form(Docente.class).fill(instancia);
+        return ok(informacionDocente.render("Informacion Docente",
+                DocenForm, routes.HomeController.InformacionDocentePost(id)));
+    }
+     public Result InformacionDocentePost(Long id) {
+       Docente instancia = Docente.find.byId(id);
+        Form<Docente> DocenForm = formFactory.form(Docente.class
+        ).fill(instancia).bindFromRequest();
+        if (DocenForm .hasErrors()) {
+            return badRequest(informacionDocente.render(
+                    "Encontramos errores", DocenForm ,
+                    routes.HomeController.InformacionDocentePost(id)
             ));
         }
 //      Estudiant estu = EstuForm.get();
