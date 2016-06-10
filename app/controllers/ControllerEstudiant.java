@@ -14,8 +14,9 @@ import views.html.*;
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-public class ControllerEstudiant extends Controller {
- @Inject
+ 
+    public class ControllerEstudiant extends Controller {
+    @Inject
     FormFactory formFactory;
     /**
      * An action that renders an HTML page with a welcome message.
@@ -23,6 +24,11 @@ public class ControllerEstudiant extends Controller {
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
+ 
+    public Result index() {
+        
+        return ok(index.render("Gestion de Estudiantes") );
+    }
  
     public Result crearEstudiantesGet() {
             Form<Estudiant> EstuForm  = formFactory.form(Estudiant.class);

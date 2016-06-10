@@ -24,27 +24,32 @@ import views.html.*;
          * this method will be called when the application receives a
          * <code>GET</code> request with a path of <code>/</code>.
          */
+     
+     public Result index() {
         
-         public Result crearDocenteGet() {
-            Form<Docente> docenForm = formFactory.form(Docente.class);
-            return ok(crearDocente.render("Ingresar docente al sistema",
-                docenForm,
-                routes.ControllerDocente.crearDocentesPost()));  
-           }//Fin del Get crearDocente
-         
-         //set, donde creo el post para el localhost nos salga en el servidor
-     public Result crearDocentesPost() {
-        Form<Docente> docenForm = formFactory.form(Docente.class).bindFromRequest();
-        if (docenForm.hasErrors()) {
-            return badRequest(crearDocente.render("Se han encontrado errores",
-                    docenForm, routes.ControllerDocente.index()));
-        } else {
-            Docente docen = docenForm.get();
-            docen.save();
-            docenForm = formFactory.form(Docente.class);
-        }
-        return ok(crearDocente.render("EL profesor se ha agregado de forma correcta", docenForm,
-                routes.ControllerDocente.crearDocentesPost()));
+        return ok(index.render("Gestion de Docentes") );
+    }
+        
+    public Result crearDocenteGet() {
+       Form<Docente> docenForm = formFactory.form(Docente.class);
+       return ok(crearDocente.render("Ingresar docente al sistema",
+           docenForm,
+           routes.ControllerDocente.crearDocentesPost()));  
+      }//Fin del Get crearDocente
+
+    //set, donde creo el post para el localhost nos salga en el servidor
+    public Result crearDocentesPost() {
+    Form<Docente> docenForm = formFactory.form(Docente.class).bindFromRequest();
+    if (docenForm.hasErrors()) {
+        return badRequest(crearDocente.render("Se han encontrado errores",
+                docenForm, routes.ControllerDocente.index()));
+    } else {
+        Docente docen = docenForm.get();
+        docen.save();
+        docenForm = formFactory.form(Docente.class);
+    }
+    return ok(crearDocente.render("EL profesor se ha agregado de forma correcta", docenForm,
+            routes.ControllerDocente.crearDocentesPost()));
     }//Fin del Post crearDocente
          
      public Result listaDocentes() {
