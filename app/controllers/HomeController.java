@@ -174,11 +174,15 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.listaDocentes());
     }
     
+    
+    
      public Result EliminarEstudiante(Long id) {
         Estudiant instancia = Estudiant.find.byId(id);
         instancia.delete();
         return redirect(routes.HomeController.listaEstudiantes());
     } 
+     
+     
      
       public Result EliminarDocente(Long id) {
         Docente instancia = Docente.find.byId(id);
@@ -230,14 +234,7 @@ public class HomeController extends Controller {
                     routes.HomeController.InformacionEstudianteGet(id)
             ));
         }
-//      Estudiant estu = EstuForm.get();
-//        //instancia.id = estu.id;
-//        instancia.nombre= estu.nombre;
-//        instancia.direccion = estu.direccion;
-//        instancia.cedula=estu.cedula;
-//        instancia.telefono = estu.telefono;
-//        instancia.requerida=estu.requerida;
-//        instancia.save();
+
         return redirect(routes.HomeController.listaEstudiantes());
     }
      
@@ -258,14 +255,7 @@ public class HomeController extends Controller {
                     routes.HomeController.InformacionDocentePost(id)
             ));
         }
-//      Estudiant estu = EstuForm.get();
-//        //instancia.id = estu.id;
-//        instancia.nombre= estu.nombre;
-//        instancia.direccion = estu.direccion;
-//        instancia.cedula=estu.cedula;
-//        instancia.telefono = estu.telefono;
-//        instancia.requerida=estu.requerida;
-//        instancia.save();
+
         return redirect(routes.HomeController.listaEstudiantes());
     }
 }

@@ -4,48 +4,51 @@
 
 # An example controller showing a sample home page
 
-GET     /                           controllers.HomeController.index
+GET     /         controllers.ControllerEstudiant.indexE
+GET     /         controllers.ControllerDocente.indexD
 
+#ESTUDIANTES
 # CrearEstudiantes
-GET     /crearEstudiant           controllers.HomeController.crearEstudiantesGet()
-POST    /crearEstudiant           controllers.HomeController.crearEstudiantesPost()
-#Quité las dos rutas extra.
+GET     /crearEstudiant           controllers.ControllerEstudiant.crearEstudiantesGet()
+POST    /crearEstudiant           controllers.ControllerEstudiant.crearEstudiantesPost()
+#Quité las dos rutas extra. Bryam.
 
 #Listar
-GET     /listaEstudiantes        controllers.HomeController.listaEstudiantes()
+GET     /listaEstudiantes        controllers.ControllerEstudiant.listaEstudiantes()
 
 #Editar..
-GET     /editarEstudiante/:id       controllers.HomeController.editarEstudianteGet(id: Long)
-POST    /editarEstudiante/:id       controllers.HomeController.editarEstudiantePost(id: Long)
+GET     /editarEstudiante/:id       controllers.ControllerEstudiant.editarEstudianteGet(id: Long)
+POST    /editarEstudiante/:id       controllers.ControllerEstudiant.editarEstudiantePost(id: Long)
 
 #Eliminar 
-GET     /eliminarEstudiante/:id       controllers.HomeController.EliminarEstudiante(id: Long)
+GET     /eliminarEstudiante/:id       controllers.ControllerEstudiant.EliminarEstudiante(id: Long)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 #Buscar..NUEVO
-GET     /buscarEstudiante/:id       controllers.HomeController.BuscarEstudianteGet(id: Long)
-POST    /buscarEstudiante/:id       controllers.HomeController.BuscarEstudiantePost(id: Long)
+GET     /buscarEstudiante/:id       controllers.ControllerEstudiant.BuscarEstudianteGet(id: Long)
+POST    /buscarEstudiante/:id       controllers.ControllerEstudiant.BuscarEstudiantePost(id: Long)
 
 #info estudiante 
-GET     /informacionEstudiante/:id       controllers.HomeController.InformacionEstudianteGet(id: Long)
-POST    /informacionEstudiante/:id       controllers.HomeController.InformacionEstudiantePost(id: Long)
+GET     /informacionEstudiante/:id       controllers.ControllerEstudiant.InformacionEstudianteGet(id: Long)
+POST    /informacionEstudiante/:id       controllers.ControllerEstudiant.InformacionEstudiantePost(id: Long)
 
+
+#DOCENTES
 #Listar docente
-GET     /listaDocentes        controllers.HomeController.listaDocentes()
+GET     /listaDocentes        controllers.ControllerDocente.listaDocentes()
 
 # CrearDocentes  
-GET     /crearDocente           controllers.HomeController.crearDocenteGet()
-POST    /crearDocente           controllers.HomeController.crearDocentesPost()
-
-
+GET     /crearDocente           controllers.ControllerDocente.crearDocenteGet()
+POST    /crearDocente           controllers.ControllerDocente.crearDocentesPost()
 
 #Editar
-GET     /editarDocentes/:id       controllers.HomeController.editarDocenteGet(id: Long)
-POST    /editarDocentes/:id       controllers.HomeController.EditarDocentePost(id: Long)
+GET     /editarDocentes/:id       controllers.ControllerDocente.editarDocenteGet(id: Long)
+POST    /editarDocentes/:id       controllers.ControllerDocente.EditarDocentePost(id: Long)
 
 #Eliminar 
-GET     /eliminarDocente/:id       controllers.HomeController.EliminarDocente(id: Long)
+GET     /eliminarDocente/:id       controllers.ControllerDocente.EliminarDocente(id: Long)
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
@@ -58,5 +61,5 @@ GET     /index                       controllers.HomeController.index()
 
 
 #info docente 
-GET     /informacionDocente/:id       controllers.HomeController.InformacionDocentesGet(id: Long)
-POST    /informacionDocente/:id       controllers.HomeController.InformacionDocentePost(id: Long)
+GET     /informacionDocente/:id       controllers.ControllerDocente.InformacionDocentesGet(id: Long)
+POST    /informacionDocente/:id       controllers.ControllerDocente.InformacionDocentePost(id: Long)
