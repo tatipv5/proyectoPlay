@@ -28,7 +28,8 @@ public class HomeController extends Controller {
  
  //picha/picha
     public Result index() {
-        return ok(index.render("Gestion Instituto"));
+        
+        return ok(index.render("Gestion Instituto") );
     }
     //Maria
     //hola
