@@ -1,4 +1,4 @@
-@(message: String )
+@(message: String ,Long id)
 
 @main(message) {
 <div class="container">
@@ -7,8 +7,9 @@
     <a href="@routes.HomeController.listaEstudiantes()" class="btn btn-default">Elimana/Editar Estudiantes</a>
       <a href="@routes.HomeController.crearEstudiantesGet()" class="btn btn-success">Matricular Estudiantes</a>
         <a href="@routes.HomeController.listaDocentes()" class="btn btn-default">Eliminar/Editar Docentes</a>
-      <a href="@routes.HomeController.crearDocenteGet()" class="btn btn-success">Contrataciones Docentes</a>
-      
+      <a href="@routes.HomeController.crearDocenteGet()" class="btn btn-success">Contrataciones Docentes</a><
+            <a href="@routes.HomeController.InformacionDocentesGet(id)" class="btn btn-success">Informacion Docentes</a><
+
        
    </div>
 </div>
