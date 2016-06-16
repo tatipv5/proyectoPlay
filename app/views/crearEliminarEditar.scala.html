@@ -9,12 +9,12 @@
     @for(estu <- estudi) {
     <li class="list-group-item" >@estu.nombre
         <div class="btn-group pull-right" role="group" aria-label="...">
-            <a href="@routes.HomeController.editarEstudiantePost(estu.id)" 
+            <a href="@routes.ControllerEstudiant.editarEstudiantePost(estu.id)" 
                class="btn btn-success">Editar</a>
-                 <a href="@routes.HomeController.EliminarEstudiante(estu.id)" 
+                 <a href="@routes.ControllerEstudiant.EliminarEstudiante(estu.id)" 
                class="btn btn-success">Eliminar</a>
             <div class="form-actions text-center">
-        <a href="@routes.HomeController.BuscarEstudiantePost(estu.id)" 
+        <a href="@routes.ControllerEstudiant.BuscarEstudiantePost(estu.id)" 
                class="btn btn-success">Buscar</a>
     </div>
         </div>

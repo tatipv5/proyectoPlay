@@ -9,9 +9,9 @@
     @for(docen <- docent) {
     <li class="list-group-item" >@docen.nombre
         <div class="btn-group pull-right" role="group" aria-label="...">
-            <a href="@routes.HomeController.EditarDocentePost(docen.id)" 
+            <a href="@routes.ControllerDocente.EditarDocentePost(docen.id)" 
                class="btn btn-success">Editar</a>
-            <a href="@routes.HomeController.EliminarDocente(docen.id)" 
+            <a href="@routes.ControllerDocente.EliminarDocente(docen.id)" 
                class="btn btn-success">Eliminar</a>
         </div>
         

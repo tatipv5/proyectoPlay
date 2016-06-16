@@ -73,7 +73,7 @@ import views.html.*;
         if (EstuForm .hasErrors()) {
             return badRequest(crearEstudiant.render(
                     "Encontramos errores", EstuForm ,
-                    routes.ControllerEstuduiant.editarEstudiantePost(id)
+                    routes.ControllerEstudiant.editarEstudiantePost(id)
             ));
         }
       Estudiant estu = EstuForm.get();
@@ -105,7 +105,7 @@ import views.html.*;
         Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
         return ok(crearEstudiant.render("estudiante",
-                EstuForm, routes.HomeController.BuscarEstudiantePost(id)));
+                EstuForm, routes.ControllerEstudiant.BuscarEstudiantePost(id)));
     }
     
      public Result EliminarEstudiante(Long id) {

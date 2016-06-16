@@ -54,10 +54,10 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 
 #Buscar..NUEVO
-GET     /buscarEstudiante/:id       controllers.HomeController.BuscarDocenteGet(id: Long)
-POST    /buscarEstudiante/:id       controllers.HomeController.BuscarDocentePost(id: Long)
+GET     /buscarEstudiante/:id       controllers.ControllerDocente.BuscarDocenteGet(id: Long)
+POST    /buscarEstudiante/:id       controllers.ControllerDocente.BuscarDocentePost(id: Long)
 
-GET     /index                       controllers.HomeController.index()
+#GET     /index                       controllers.HomeController.index()
 
 
 #info docente 

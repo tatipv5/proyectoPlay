@@ -6,7 +6,7 @@ import play.data.Form;
 import play.mvc.*;
 import static play.mvc.Results.ok;
 import models.Docente;
-import models.Estudiant;
+
 import play.data.FormFactory;
 import static play.mvc.Results.ok;
 import views.html.*;
@@ -93,26 +93,27 @@ import views.html.*;
         return redirect(routes.ControllerDocente.listaDocentes());
     } 
 
-     public Result BuscarDocenteGet(Long id) {
+        public Result BuscarDocenteGet(Long id) {
         Docente instancia = Docente.find.byId(id);
-        Form<Docente> DocenForm= formFactory.form(Docente.class).fill(instancia);
+        Form<Docente> EstuForm = formFactory.form(Docente.class).fill(instancia);
         return ok(crearDocente.render("Docente",
-                DocenForm, routes.ControllerDocente.BuscarDocentePost(id)));
+                EstuForm, routes.ControllerDocente.BuscarDocentePost(id)));
     }
 
      public Result BuscarDocentePost(Long id) {
        Docente instancia = Docente.find.byId(id);
-        Form<Docente> DocenForm = formFactory.form(Docente.class
+        Form<Docente> EstuForm = formFactory.form(Docente.class
         ).fill(instancia).bindFromRequest();
 
-        if (DocenForm.hasErrors()) {
+        if (EstuForm .hasErrors()) {
             return badRequest(crearDocente.render(
-                    "Encontramos errores", DocenForm,
+                    "Encontramos errores", EstuForm ,
                     routes.ControllerDocente.BuscarDocentePost(id)
             ));
         }
         
-        return redirect(routes.ControllerDocente.listaEstudiantes());
+    
+        return redirect(routes.ControllerDocente.listaDocentes());
     }
      
      
