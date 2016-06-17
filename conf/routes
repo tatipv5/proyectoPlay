@@ -57,9 +57,13 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 GET     /buscarEstudiante/:id       controllers.ControllerDocente.BuscarDocenteGet(id: Long)
 POST    /buscarEstudiante/:id       controllers.ControllerDocente.BuscarDocentePost(id: Long)
 
-#GET     /index                       controllers.HomeController.index()
+GET     /index                       controllers.HomeController.index()
 
 
 #info docente 
 GET     /informacionDocente/:id       controllers.ControllerDocente.InformacionDocentesGet(id: Long)
 POST    /informacionDocente/:id       controllers.ControllerDocente.InformacionDocentePost(id: Long)
+
+#GRUPOS
+
+GET     /listaGrupos       controllers.HomeController.listaGrupos()

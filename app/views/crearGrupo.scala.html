@@ -1,0 +1,23 @@
+@(message: String, grupo: List[Grupo])
+@import helper._
+
+@main(message) {
+
+<h1> Lista de grupo </h1>
+
+<ul class="list-group">
+    @for(grup <- grupo) {
+    <li class="list-group-item" >@grupo
+        <div class="btn-group pull-right" role="group" aria-label="...">
+            <a href="" 
+               class="btn btn-success">Editar</a>
+            <a href="" 
+               class="btn btn-success">Eliminar</a>
+        </div>
+        
+        
+    </li>
+    }
+
+   
+}
