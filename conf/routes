@@ -67,3 +67,6 @@ POST    /informacionDocente/:id       controllers.ControllerDocente.InformacionD
 #GRUPOS
 
 GET     /listaGrupos       controllers.HomeController.listaGrupos()
+
+#CURSOS
+GET     /listaCursos      controllers.HomeController.listaCursos()
