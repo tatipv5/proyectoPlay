@@ -7,6 +7,7 @@ import play.data.Form;
 import play.mvc.*;
 import static play.mvc.Results.ok;
 import models.Grupo;
+import models.Curso;
 import play.data.FormFactory;
 import static play.mvc.Results.ok;
 import views.html.*;
@@ -38,6 +39,13 @@ public class HomeController extends Controller {
      Form<Grupo> grupForm  = formFactory.form(Grupo.class);
       return ok(crearGrupo.render("Listado de Grupo",Grup));
    }
+     public Result listaCursos() {
+     List<Curso>Cur=Curso.find.all();
+     Form<Curso> cursoForm  = formFactory.form(Curso.class);
+      return ok(crearCurso.render("Listado de curso",Cur));
+   }
+     
+     
     //Maria
     //hola
     //get donde se crea la vEstudiante
