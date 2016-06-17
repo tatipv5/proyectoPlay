@@ -29,7 +29,7 @@ import views.html.*;
         
         return ok(index.render("Gestion de Docentes") );
     }
-        
+         
     public Result crearDocenteGet() {
        Form<Docente> docenForm = formFactory.form(Docente.class);
        return ok(crearDocente.render("Ingresar docente al sistema",
