@@ -2,15 +2,34 @@
 
 @main(message) {
 <div class="container">
-   <div class="btn-group" role="group" aria-label="...">
-       
-    <a href="@routes.ControllerEstudiant.listaEstudiantes()" class="btn btn-default">Elimana/Editar Estudiantes</a>
-      <a href="@routes.ControllerEstudiant.crearEstudiantesGet()" class="btn btn-success">Matricular Estudiantes</a>
-        <a href="@routes.ControllerDocente.listaDocentes()" class="btn btn-default">Eliminar/Editar Docentes</a>
-      <a href="@routes.ControllerDocente.crearDocenteGet()" class="btn btn-success">Contrataciones Docentes</a><
-            
- 
+    <div class="btn-group" role="group" aria-label="...">
 
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <nav id = "estudiante"> 
+                        <h1> Estudiantes </h1>
+                        <br/>
+                        <a href="@routes.ControllerEstudiant.crearEstudiantesGet()" class="btn btn-success">Matricular Estudiantes</a>
+                        <br/>
+                        <br/>
+                        <a href="@routes.ControllerEstudiant.listaEstudiantes()" class="btn btn-default">Elimana/Editar Estudiantes</a>
 
-}
+                    </nav>
+                </td>
+                <td>
+                    <nav id="docente"> 
+                        <h1> Docentes </h1>
+                        <br/>
+                        <a href="@routes.ControllerDocente.listaDocentes()" class="btn btn-default">Eliminar/Editar Docentes</a>
+                        <br/>
+                        <br/>
+                        <a href="@routes.ControllerDocente.crearDocenteGet()" class="btn btn-success">Contrataciones Docentes</a>
+
+                    </nav>
+                </td>
+            </tr>
+        </table>
+
+        }
 
