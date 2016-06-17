@@ -8,7 +8,7 @@
             <tr>
                 <td>
                     <nav id = "estudiante"> 
-                        <h1> Estudiantes </h1>
+                        <h3> Estudiantes </h3>
                         <br/>
                         <a href="@routes.ControllerEstudiant.crearEstudiantesGet()" class="btn btn-success">Matricular Estudiantes</a>
                         <br/>
@@ -19,15 +19,47 @@
                 </td>
                 <td>
                     <nav id="docente"> 
-                        <h1> Docentes </h1>
+                        <h3> Docentes </h3>
                         <br/>
-                        <a href="@routes.ControllerDocente.listaDocentes()" class="btn btn-default">Eliminar/Editar Docentes</a>
+                        <a href="@routes.ControllerDocente.listaDocentes()" class="btn btn-default">Modificar Docentes</a>
                         <br/>
                         <br/>
                         <a href="@routes.ControllerDocente.crearDocenteGet()" class="btn btn-success">Contrataciones Docentes</a>
 
                     </nav>
                 </td>
+                
+                <td>
+                    <nav id="grupo"> 
+                        <h3> Grupos </h3>
+                        <br/>
+                        <a class="btn btn-default">Lista Grupos</a>
+                        <br/>
+
+                    </nav>
+                </td>
+                
+                <td>
+                    <nav id="cursos"> 
+                        <h3> Cursos </h3>
+                        <br/>
+                        <a class="btn btn-default">Lista Cursos</a>
+                        <br/>
+
+                    </nav>
+                </td>
+                
+                <td>
+                    <nav id="horario"> 
+                        <h3> Horarios </h3>
+                        <br/>
+                        <a class="btn btn-default">Lista Horarios</a>
+                        <br/>
+
+                    </nav>
+                </td>
+                
+                
             </tr>
         </table>
 
