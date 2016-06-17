@@ -8,6 +8,8 @@ import play.mvc.*;
 import static play.mvc.Results.ok;
 import models.Grupo;
 import models.Curso;
+import models.Estudiant;
+import static play.api.Application$class.routes;
 import play.data.FormFactory;
 import static play.mvc.Results.ok;
 import views.html.*;
@@ -44,9 +46,25 @@ public class HomeController extends Controller {
      Form<Curso> cursoForm  = formFactory.form(Curso.class);
       return ok(crearCurso.render("Listado de curso",Cur));
    }
-     
-     
-    //Maria
+//     public  Result paginaIndexGet(){
+//
+// // Form<Estudiant> EstuForm  = formFactory.form(Estudiant.class);
+//             index instancia = index();
+//            return ok(index.render("lolo.",
+//                   instancia,
+//                    routes.HomeController.paginaIndexPost()));
+//     }
+//     
+//     public Result paginaIndexPost(){
+//     
+//            //Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).bindFromRequest();
+//
+//         index instancia = index();
+//                return ok(index.render( "Schales",
+//                        instancia, routes.HomeController.index()));
+//     }
+//     
+//    //Maria
     //hola
     //get donde se crea la vEstudiante
 //    public Result crearEstudiantesGet() {

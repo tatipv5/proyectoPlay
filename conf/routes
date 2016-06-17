@@ -59,6 +59,8 @@ POST    /buscarEstudiante/:id       controllers.ControllerDocente.BuscarDocenteP
 
 GET     /index                       controllers.HomeController.index()
 
+#GET     /paginaIndexG/:id                   controller.HomeController().paginaIndexGet();
+#POST     /paginaIndexP/:id                   controller.HomeController().paginaIndexPost();
 
 #info docente 
 GET     /informacionDocente/:id       controllers.ControllerDocente.InformacionDocentesGet(id: Long)
