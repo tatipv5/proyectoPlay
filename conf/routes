@@ -63,8 +63,7 @@ GET     /indexG                      controllers.ControllerGrupo.indexG()
 #Curso
 GET     /indexC                      controllers.ControllersCurso.indexC()
 
-#GET     /paginaIndexG/:id                   controller.HomeController().paginaIndexGet();
-#POST     /paginaIndexP/:id                   controller.HomeController().paginaIndexPost();
+GET     /index                     controllers.HomeController.index()
 
 #info docente 
 GET     /informacionDocente/:id       controllers.ControllerDocente.InformacionDocentesGet(id: Long)
