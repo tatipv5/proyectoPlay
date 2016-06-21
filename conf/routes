@@ -63,6 +63,8 @@ GET     /indexG                      controllers.ControllerGrupo.indexG()
 #Curso
 GET     /indexC                      controllers.ControllersCurso.indexC()
 
+
+
 GET     /index                     controllers.HomeController.index()
 
 #info docente 

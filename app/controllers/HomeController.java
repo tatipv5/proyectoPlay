@@ -9,7 +9,7 @@ import static play.mvc.Results.ok;
 import models.Grupo;
 import models.Curso;
 import models.Estudiant;
-import static play.api.Application$class.routes;
+
 import play.data.FormFactory;
 import static play.mvc.Results.ok;
 import views.html.*;
@@ -34,8 +34,7 @@ public class HomeController extends Controller {
         return ok(index.render("Gestion Instituto") );
     }
     
-    
-    
+   
      public Result listaGrupos() {
      List<Grupo>Grup=Grupo.find.all();
      Form<Grupo> grupForm  = formFactory.form(Grupo.class);
@@ -291,4 +290,5 @@ public class HomeController extends Controller {
 //
 //        return redirect(routes.HomeController.listaEstudiantes());
 //    }
+
 }
