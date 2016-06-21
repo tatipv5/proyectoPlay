@@ -13,10 +13,7 @@
                class="btn btn-success">Editar</a>
                  <a href="@routes.ControllerEstudiant.EliminarEstudiante(estu.id)" 
                class="btn btn-success">Eliminar</a>
-            <div class="form-actions text-center">
-        <a href="@routes.ControllerEstudiant.BuscarEstudiantePost(estu.id)" 
-               class="btn btn-success">Buscar</a>
-    </div>
+           
         </div>
 
     </li>
@@ -32,4 +29,20 @@
                 '_help -> "Ingrese el id",
                 'class -> "form-control"
                 )</div>
+            
+         
+        <nav class="form-actions text-center">
+            <div class="form-actions text-center">
+
+                <br/>
+                <br/>
+                <a href="@routes.ControllerEstudiant.BuscarEstudiantePost(1)" 
+                   class="btn btn-success">Buscar</a>
+                <br/>
+                <br/>
+            </div>
+            <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+        </nav>
+
+
 }

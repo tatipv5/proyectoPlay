@@ -14,27 +14,41 @@
             <a href="@routes.ControllerDocente.EliminarDocente(docen.id)" 
                class="btn btn-success">Eliminar</a>
         </div>
-        
-        
+
+
     </li>
     }
 </ul>
 
 
 
- <fieldset>
+<fieldset>
 
-        <div class="row">
-            <div class="col-md-4">  @inputText( 
-                searchForm("buscar"),
-                '_label -> "Busca el estudiante",
-                '_help -> "Ingrese el id",
-                'class -> "form-control"
-                )</div>
+    <div class="row">
+        <div class="col-md-4">  @inputText( 
+            searchForm("buscar"),
+            '_label -> "Busca el estudiante",
+            '_help -> "Ingrese el id",
+            'class -> "form-control"
+            )</div>
+
+        <nav class="form-actions text-center">
+            <div class="form-actions text-center">
+
+                <br/>
+                <br/>
+                <a href="@routes.ControllerDocente.BuscarDocentePost(1)" 
+                   class="btn btn-success">Buscar</a>
+                <br/>
+                <br/>
+            </div>
+            <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+        </nav>
 
 
 
 
 
 
-}
+
+        }

@@ -5,48 +5,50 @@
 
 <div class="alert"> @message </div>
 @form(postUrl, 'class -> "form") {
-    @if(searchForm.hasGlobalErrors) {
-        <div class="alert alert-danger">
-            @searchForm.globalError.message
+@if(searchForm.hasGlobalErrors) {
+<div class="alert alert-danger">
+    @searchForm.globalError.message
+</div>
+}
+
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-4">  @inputText( 
+            searchForm("nombre"),
+            '_label -> "Nombre del profesor:",
+            '_help -> "Nombre completo.",
+            'class -> "form-control"
+            )</div>
+
+        <div class="col-md-4">
+            @textarea(searchForm("materia"),
+            '_help -> "Requerido.",
+            'class -> "form-control")
         </div>
-    }
+        <div class="col-md-4">
+            @textarea(searchForm("cedula"),
+            '_help -> "Formato de 9 dígitos",
+            'class -> "form-control")
+        </div>
+        <div class="col-md-4">
+            @textarea(searchForm("telefono"),
+            '_help -> "+506",
+            'class -> "form-control")
+        </div>
 
-    <fieldset>
 
-        <div class="row">
-            <div class="col-md-4">  @inputText( 
-                searchForm("nombre"),
-                '_label -> "Nombre del profesor:",
-                '_help -> "Nombre completo.",
-                'class -> "form-control"
-                )</div>
-            
-             <div class="col-md-4">
-                @textarea(searchForm("materia"),
-                '_help -> "Requerido.",
-                'class -> "form-control")
-            </div>
-            <div class="col-md-4">
-                @textarea(searchForm("cedula"),
-                '_help -> "Formato de 9 dígitos",
-                'class -> "form-control")
-            </div>
-               <div class="col-md-4">
-                @textarea(searchForm("telefono"),
-                '_help -> "+506",
-                'class -> "form-control")
-            </div>
-           
-        
 
-    </fieldset>
+</fieldset>
 
-    <div class="form-actions text-center">
-        <input type="submit" class="btn btn-success" value="Guardar") > 
-    </div>
-    
-     <div class="form-actions text-center">
-        <input type="submit" class="btn btn-success" value="Volver") >  
-    </div>
-    }
+<div class="form-actions text-center">
+    <input type="submit" class="btn btn-success" value="Guardar") > 
+</div>
+
+<div class="form-actions text-center">
+    <br/>
+    <br/>
+    <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+</div>
+}
 }

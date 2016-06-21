@@ -5,57 +5,59 @@
 
 <div class="alert"> @message </div>
 @form(postUrl, 'class -> "form") {
-    @if(searchForm.hasGlobalErrors) {
-        <div class="alert alert-danger">
-            @searchForm.globalError.message
+@if(searchForm.hasGlobalErrors) {
+<div class="alert alert-danger">
+    @searchForm.globalError.message
+</div>
+}
+
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-4"> @inputText(
+            searchForm("nombre"),
+            '_label -> "Nombre",
+            '_help -> "required",
+            'class -> "form-control"
+            )</div>
+        <div class="col-md-4">
+            @textarea(searchForm("direccion"),
+            '_help -> "direccion exacta.",
+            'class -> "form-control")
         </div>
+        <div class="col-md-4">
+            @textarea(searchForm("cedula"),
+            '_help -> "Incluyendo ceros",
+            'class -> "form-control")
+        </div>
+        <div class="col-md-4">
+            @textarea(searchForm("telefono"),
+            '_help -> "Required",
+            'class -> "form-control")
+        </div>
+    </div>
+
+
+
+    @input(searchForm("requerida")) { (id, name, value, args) =>
+
+    <select name="@name" id="@id" @toHtmlArgs(args)>
+            <option value="true" selected>I ciclo</option>
+        <option value="false">II ciclo</option>
+    </select>
     }
 
-    <fieldset>
+</fieldset>
 
-        <div class="row">
-            <div class="col-md-4"> @inputText(
-                searchForm("nombre"),
-                '_label -> "Nombre",
-                '_help -> "required",
-                'class -> "form-control"
-                )</div>
-            <div class="col-md-4">
-                @textarea(searchForm("direccion"),
-                '_help -> "direccion exacta.",
-                'class -> "form-control")
-            </div>
-               <div class="col-md-4">
-                @textarea(searchForm("cedula"),
-                '_help -> "Incluyendo ceros",
-                'class -> "form-control")
-            </div>
-            <div class="col-md-4">
-                @textarea(searchForm("telefono"),
-                '_help -> "Required",
-                'class -> "form-control")
-            </div>
-        </div>
+<div class="form-actions text-center">
 
+    <input type="submit" class="btn btn-success" value="Guardar") >
+</div>
 
-        
-        @input(searchForm("requerida")) { (id, name, value, args) =>
-
-        <select name="@name" id="@id" @toHtmlArgs(args)>
-                <option value="true" selected>I ciclo</option>
-            <option value="false">II ciclo</option>
-        </select>
-        }
-
-    </fieldset>
-
-    <div class="form-actions text-center">
-        <input type="submit" class="btn btn-success" value="Guardar") >
-    </div>
-    
-     <div class="form-actions text-center">
-
-         <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
-    </div>
-    }
+<div class="form-actions text-center">
+    <br/>
+    <br/>
+    <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+</div>
+}
 }
