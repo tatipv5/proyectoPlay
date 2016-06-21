@@ -5,10 +5,24 @@
  */
 package models;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
  */
 public class ArrayGrupo {
+    private ArrayList<Estudiant> listaEstudiante;
+ 
+      public ArrayGrupo(){
+         listaEstudiante=new ArrayList<Estudiant>();
+  
+        }
+  
+    public void insertarCurso(Estudiant estudiante){  
+    listaEstudiante.add(estudiante);
+    JOptionPane.showMessageDialog(null,"Estudiante insertado a la lista");
+    }
     
 }
