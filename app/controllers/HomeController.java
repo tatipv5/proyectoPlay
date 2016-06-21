@@ -34,7 +34,8 @@ public class HomeController extends Controller {
         return ok(index.render("Gestion Instituto") );
     }
     
-   
+   //PICHAAAAAAAAAAAA
+           
      public Result listaGrupos() {
      List<Grupo>Grup=Grupo.find.all();
      Form<Grupo> grupForm  = formFactory.form(Grupo.class);
