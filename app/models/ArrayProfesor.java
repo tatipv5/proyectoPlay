@@ -5,11 +5,32 @@
  */
 package models;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
  */
 public class ArrayProfesor {
-     
- }
+      private ArrayList<Curso> listaCurso;
+ 
+      public ArrayProfesor(){
+         listaCurso=new ArrayList<Curso>();
+  
+        }
+  
+    public void insertarCurso(Curso curso){  
+    listaCurso.add(curso);
+    JOptionPane.showMessageDialog(null,"Persona insertada a la lista");
+    }
+    
+    
+ 
+
+
+
+
+
 }
+
