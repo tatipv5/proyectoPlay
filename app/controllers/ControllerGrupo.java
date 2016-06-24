@@ -32,7 +32,7 @@ public class ControllerGrupo extends Controller {
         return ok(index.render("Gestion Instituto") );
     }
  
- public Result listaGrupo() {
+ public Result listaGrupos() {
      List<Grupo>grup=Grupo.find.all();
      Form<Grupo> grupForm  = formFactory.form(Grupo.class);
       return ok(crearEliminarEditarGrupo.render("Listado de Grupo",grup, grupForm));
@@ -84,13 +84,13 @@ public class ControllerGrupo extends Controller {
         instancia.nombre= grup.nombre;
         instancia.identificador = grup.identificador;
         instancia.save();
-        return redirect(routes.ControllerGrupo.listaGrupo());
+        return redirect(routes.ControllerGrupo.listaGrupos());
     }
     
     public Result EliminarGrupo(Long id) {
         Grupo instancia = Grupo.find.byId(id);
         instancia.delete();
-        return redirect(routes.ControllerGrupo.listaGrupo());
+        return redirect(routes.ControllerGrupo.listaGrupos());
     } 
 
 }
