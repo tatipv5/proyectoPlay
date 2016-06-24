@@ -28,10 +28,11 @@ public class Grupo extends Model{
    @Constraints.Required
    public String nombre;
    
-   public ArrayList<Long>listaEstudiantes;
+    static public ArrayList<Long>listaEstudiantes;
    
-   int cont=0;
-   public boolean agregar(Long estud){
+   static int cont=0;
+   
+   public static  boolean agregarCEstud(Long estud){
        if(cont<25){
            listaEstudiantes.add(estud);
            return true;

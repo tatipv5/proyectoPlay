@@ -31,6 +31,8 @@ create table estudiant (
 create table grupo (
   id                            bigint auto_increment not null,
   identificador                 integer,
+  nombre                        varchar(255),
+  cont                          integer,
   constraint pk_grupo primary key (id)
 );
 
