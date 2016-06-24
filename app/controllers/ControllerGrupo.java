@@ -34,9 +34,9 @@ public class ControllerGrupo extends Controller {
     
     
     
-     public Result listaGrupos() {
-     List<Grupo>Grup=Grupo.find.all();
-     Form<Grupo> grupForm  = formFactory.form(Grupo.class);
-      return ok(crearGrupo.render("Listado de Grupo",Grup));
-   }
+//     public Result listaGrupos() {
+//     List<Grupo>Grup=Grupo.find.all();
+//     Form<Grupo> grupForm  = formFactory.form(Grupo.class);
+//      return ok(crearGrupo.render("Listado de Grupo",Grup));
+//   }
 }
