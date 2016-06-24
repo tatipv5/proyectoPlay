@@ -21,11 +21,23 @@ public class Grupo extends Model{
     @Constraints.Min(10)
     public Long id;
     
-     @Constraints.Required
-    ArrayList<Estudiant> arrayEstudiante = new ArrayList<Estudiant>();
     
    @Constraints.Required
    public int identificador;
+   
+   @Constraints.Required
+   public String nombre;
+   
+   public ArrayList<Long>listaEstudiantes;
+   
+   int cont=0;
+   public boolean agregar(Long estud){
+       if(cont<25){
+           listaEstudiantes.add(estud);
+           return true;
+       }
+       return false;
+   }
    
    public static Finder<Long, Grupo> find = new Finder<Long, Grupo>(Grupo.class); 
     

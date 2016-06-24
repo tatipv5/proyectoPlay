@@ -3,69 +3,85 @@
 @main(message) {
 <div class="container">
     <div class="btn-group" role="group" aria-label="...">
-
+        <style>
+            th, td {
+                padding: 10px;
+                text-align: left;
+            }
+        </style>
         <table style="width:100%">
+            <tr> 
+                <td>
+                    <h3> Estudiantes </h3>
+                </td>
+                <td>
+                    <h3> Docentes </h3>
+                </td>
+
+                <td>
+                    <h3> Grupos </h3>
+                </td>
+
+                <td>
+                    <h3> Cursos </h3>
+
+                </td>
+
+                <td>
+                    <h3> Horarios </h3>
+                </td>
+            </tr>
+            <br></br>
+            <br></br>
             <tr>
                 <td>
-                    <nav id = "estudiante"> 
-                        <h3> Estudiantes </h3>
-                        <br/>
-                        <a href="@routes.ControllerEstudiant.crearEstudiantesGet()" class="btn btn-success ">Matricular Estudiantes   </a>
-                        <br/>
-                        <br/>
-                        <a href="@routes.ControllerEstudiant.listaEstudiantes()" class="btn btn-default ">Modificar Estudiantes    </a>
-                         <br/>
-                        <br/>
-                        <a class="btn btn-default ">Informacion Estudiante   </a>
+                    <a href="@routes.ControllerEstudiant.crearEstudiantesGet()" class="btn btn-success ">Matricular Estudiantes   </a>
+                </td>  
+                <td>
+                    <a href="@routes.ControllerDocente.crearDocenteGet()" class="btn btn-success">Contratar Docentes</a>
 
-                    </nav>
                 </td>
                 <td>
-                    <nav id="docente"> 
-                        <h3> Docentes </h3>
-                        <br/>
-                         <a href="@routes.ControllerDocente.crearDocenteGet()" class="btn btn-success">Contratar Docentes  </a>
-                        <br/>
-                        <br/>
-                        <a href="@routes.ControllerDocente.listaDocentes()" class="btn btn-default ">Modificar Docentes      </a>
-                         <br/>
-                        <br/>
-                        <a class="btn btn-default ">Informacion Docente   </a>
-                    </nav>
-                </td>
-                
-                <td>
-                    <nav id="grupo"> 
-                        <h3> Grupos </h3>
-                        <br/>
-                        <a class="btn btn-default btn-lg">Lista Grupos             </a>
-                        <br/>
+                    <a class="btn btn-success ">Lista Grupos</a>
 
-                    </nav>
                 </td>
-                
                 <td>
-                    <nav id="cursos"> 
-                        <h3> Cursos </h3>
-                        <br/>
-                        <a class="btn btn-default btn-lg">Lista Cursos             </a>
-                        <br/>
+                    <a class="btn btn-success ">Lista Cursos             </a>
 
-                    </nav>
                 </td>
-                
                 <td>
-                    <nav id="horario"> 
-                        <h3> Horarios </h3>
-                        <br/>
-                        <a class="btn btn-default btn-lg">Lista Horarios</a>
-                        <br/>
+                    <a class="btn btn-success ">Lista Horarios</a>
 
-                    </nav>
                 </td>
-                
-                
             </tr>
+            <br></br>
+            <br></br>
+            <tr>
+                <td>
+                    <a href="@routes.ControllerEstudiant.listaEstudiantes()" class="btn btn-success  ">Modificar Estudiantes    </a>
+                </td>
+                <td>
+                    <a href="@routes.ControllerDocente.listaDocentes()" class="btn btn-success ">Modificar Docentes      </a>              
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <br></br>
+            <br></br>
+            <tr>
+                <td>
+                    <a class="btn btn-success  ">Informacion Estudiante   </a>
+                </td>
+                <td>
+                    <a class="btn btn-success ">Informacion Docente   </a>                
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+
         </table>
 
         }
