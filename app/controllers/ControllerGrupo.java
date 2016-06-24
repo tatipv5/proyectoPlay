@@ -31,6 +31,12 @@ public class ControllerGrupo extends Controller {
         
         return ok(index.render("Gestion Instituto") );
     }
+ 
+ public Result listaGrupo() {
+     List<Grupo>grup=Grupo.find.all();
+     Form<Grupo> grupForm  = formFactory.form(Grupo.class);
+      return ok(crearEliminarEditarGrupo.render("Listado de Grupo",grup, grupForm));
+   }
     
     public Result crearGrupoGet() {
             Form<Grupo> grupoForm  = formFactory.form(Grupo.class);
@@ -56,6 +62,35 @@ public class ControllerGrupo extends Controller {
                     routes.ControllerGrupo.crearGrupoPost()));
         }//Fian del método.
     
+    public Result editarGrupoGet(Long id) {
+        Grupo instancia = Grupo.find.byId(id);
+        Form<Grupo> grupoForm = formFactory.form(Grupo.class).fill(instancia);
+        return ok(crearGrupo.render("Formulario de curso",
+                grupoForm, routes.ControllerGrupo.editarGrupoPost(id)));
+    }
     
+    public Result editarGrupoPost(Long id) {
+       Grupo instancia = Grupo.find.byId(id);
+        Form<Grupo> grupoForm = formFactory.form(Grupo.class
+        ).fill(instancia).bindFromRequest();
+        if (grupoForm .hasErrors()) {
+            return badRequest(crearGrupo.render(
+                    "Encontramos errores", grupoForm ,
+                    routes.ControllerGrupo.editarGrupoPost(id)
+            ));
+        }
+      Grupo grup = grupoForm.get();
+  
+        instancia.nombre= grup.nombre;
+        instancia.identificador = grup.identificador;
+        instancia.save();
+        return redirect(routes.ControllerGrupo.listaGrupo());
+    }
+    
+    public Result EliminarGrupo(Long id) {
+        Grupo instancia = Grupo.find.byId(id);
+        instancia.delete();
+        return redirect(routes.ControllerGrupo.listaGrupo());
+    } 
 
 }
