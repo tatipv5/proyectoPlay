@@ -36,16 +36,16 @@ public class HomeController extends Controller {
     
    //PICHAAAAAAAAAAAA
            
-     public Result listaGrupos() {
-     List<Grupo>Grup=Grupo.find.all();
-     Form<Grupo> grupForm  = formFactory.form(Grupo.class);
-      return ok(crearGrupo.render("Listado de Grupo",Grup));
-   }
-     public Result listaCursos() {
-     List<Curso>Cur=Curso.find.all();
-     Form<Curso> cursoForm  = formFactory.form(Curso.class);
-      return ok(crearCurso.render("Listado de curso",Cur));
-   }
+//     public Result listaGrupos() {
+//     List<Grupo>Grup=Grupo.find.all();
+//     Form<Grupo> grupForm  = formFactory.form(Grupo.class);
+//      return ok(crearGrupo.render("Listado de Grupo",Grup));
+//   }
+//     public Result listaCursos() {
+//     List<Curso>Cur=Curso.find.all();
+//     Form<Curso> cursoForm  = formFactory.form(Curso.class);
+//      return ok(crearCurso.render("Listado de curso",Cur));
+//   }
 //     public  Result paginaIndexGet(){
 //
 // // Form<Estudiant> EstuForm  = formFactory.form(Estudiant.class);

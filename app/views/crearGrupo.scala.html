@@ -1,23 +1,63 @@
-@(message: String, grupo: List[Grupo])
+@(message: String,  searchForm: Form[Grupo], postUrl: play.api.mvc.Call)
 @import helper._
 
 @main(message) {
 
-<h1> Lista de grupo </h1>
+<div class="alert"> @message </div>
+@form(postUrl, 'class -> "form") {
+@if(searchForm.hasGlobalErrors) {
+<div class="alert alert-danger">
+    @searchForm.globalError.message
+</div>
+}
 
-<ul class="list-group">
-    @for(grup <- grupo) {
-    <li class="list-group-item" >@grupo
-        <div class="btn-group pull-right" role="group" aria-label="...">
-            <a href="" 
-               class="btn btn-success">Editar</a>
-            <a href="" 
-               class="btn btn-success">Eliminar</a>
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-4"> @inputText(
+            searchForm("nombre"),
+            '_label -> "Nombre",
+            '_help -> "required",
+            'class -> "form-control"
+            )</div>
+        <div class="col-md-4">
+            @textarea(searchForm("direccion"),
+            '_help -> "direccion exacta.",
+            'class -> "form-control")
         </div>
-        
-        
-    </li>
+        <div class="col-md-4">
+            @textarea(searchForm("cedula"),
+            '_help -> "Incluyendo ceros",
+            'class -> "form-control")
+        </div>
+        <div class="col-md-4">
+            @textarea(searchForm("telefono"),
+            '_help -> "Required",
+            'class -> "form-control")
+        </div>
+    </div>
+
+
+
+    @input(searchForm("requerida")) { (id, name, value, args) =>
+
+    <select name="@name" id="@id" @toHtmlArgs(args)>
+            <option value="true" selected>I ciclo</option>
+        <option value="false">II ciclo</option>
+    </select>
     }
 
-   
+</fieldset>
+
+<div class="form-actions text-center">
+
+    <input type="submit" class="btn btn-success" value="Guardar") >
+</div>
+
+<div class="form-actions text-center">
+    <br/>
+    <br/>
+    <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+</div>
+}
 }
