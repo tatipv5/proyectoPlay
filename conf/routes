@@ -73,7 +73,10 @@ POST    /informacionDocente/:id       controllers.ControllerDocente.InformacionD
 
 #GRUPOS
 
-GET     /listaGrupos       controllers.ControllerGrupo.listaGrupos()
+#GET     /listaGrupos       controllers.ControllerGrupo.listaGrupos()
+
+GET     /crearGrupo          controllers.ControllerGrupo.crearGrupoGet()
+POST    /crearGrupo          controllers.ControllerGrupo.crearGrupoPost()
 
 #CURSOS
 GET     /listaCursos      controllers.ControllersCurso.listaCursos()
