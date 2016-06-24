@@ -50,16 +50,12 @@ public class ControllerGrupo extends Controller {
                 Grupo grup= grupoForm.get();
                 grup.save();
                 grupoForm = formFactory.form(Grupo.class);
-                models.Grupo.agregarCEstud(grup.id);
+               // models.Grupo.agregarCEstud(grup.id);
             }
             return ok(crearGrupo.render("El grupo  ha sido creado correctamente", grupoForm ,
                     routes.ControllerGrupo.crearGrupoPost()));
         }//Fian del método.
     
     
-//     public Result listaGrupos() {
-//     List<Grupo>Grup=Grupo.find.all();
-//     Form<Grupo> grupForm  = formFactory.form(Grupo.class);
-//      return ok(crearGrupo.render("Listado de Grupo",Grup));
-//   }
+
 }
