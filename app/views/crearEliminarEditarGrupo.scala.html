@@ -1,0 +1,54 @@
+@(message: String, grupo List[Grupo],searchForm:Form[Grupo])
+@import helper._
+
+@main(message) {
+
+<h1> Lista de docentes </h1>
+
+<ul class="list-group">
+    @for(grup <- grupo) {
+    <li class="list-group-item" >@grup.nombre
+        <div class="btn-group pull-right" role="group" aria-label="...">
+            <a 
+               class="btn btn-success">Editar</a>
+            <a 
+               class="btn btn-success">Eliminar</a>
+        </div>
+
+
+    </li>
+    }
+</ul>
+
+
+
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-4">  @inputText( 
+            searchForm("buscar"),
+            '_label -> "Buscar grupo",
+            '_help -> "Ingrese el id",
+            'class -> "form-control"
+            )</div>
+
+        <nav class="form-actions text-center">
+            <div class="form-actions text-center">
+
+                <br/>
+                <br/>
+                <a 
+                   class="btn btn-success">Buscar</a>
+                <br/>
+                <br/>
+            </div>
+            <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+        </nav>
+
+
+
+
+
+
+
+        }
