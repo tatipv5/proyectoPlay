@@ -48,6 +48,7 @@ import views.html.*;
                 Estudiant estu = EstuForm.get();
                 estu.save();
                 EstuForm = formFactory.form(Estudiant.class);
+                models.Grupo.agregarCEstud(estu.id);
             }
             return ok(crearEstudiant.render("La matricula ha sido creada correctamente", EstuForm ,
                     routes.ControllerEstudiant.crearEstudiantesPost()));
