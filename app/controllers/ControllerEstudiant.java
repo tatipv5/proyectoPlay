@@ -135,8 +135,7 @@ public class ControllerEstudiant extends Controller {
 
     public Result InformacionEstudiantePost(Long id) {
         Estudiant instancia = Estudiant.find.byId(id);
-        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
-        ).fill(instancia).bindFromRequest();
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia).bindFromRequest();
         if (EstuForm.hasErrors()) {
             return badRequest(informacionEstudiante.render(
                     "Encontramos errores", EstuForm,
