@@ -3,16 +3,16 @@
 
 @main(message) {
 
-<h1> Lista de Curso </h1>
+<h1> Lista de docentes </h1>
 
 <ul class="list-group">
     @for(curs <- curso) {
     <li class="list-group-item" >@curs.nombre
         <div class="btn-group pull-right" role="group" aria-label="...">
-            <a 
-                href="@routes.ControllerGrupo.editarGrupoPost(curs.id)" class="btn btn-success">Editar</a>
-            <a 
-                href="@routes.ControllerGrupo.EliminarGrupo(curs.id)" class="btn btn-success">Eliminar</a>
+            <a href="@routes.ControllersCurso.editarCursoPost(curs.id)" 
+               class="btn btn-success">Editar</a>
+            <a href="@routes.ControllersCurso.eliminarCurso(curs.id)" 
+               class="btn btn-success">Eliminar</a>
         </div>
 
 
@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-md-4">  @inputText( 
             searchForm("buscar"),
-            '_label -> "Buscar grupo",
+            '_label -> "Busca el curso",
             '_help -> "Ingrese el id",
             'class -> "form-control"
             )</div>
@@ -38,7 +38,7 @@
                 <br/>
                 <br/>
                 <a 
-                    class="btn btn-success">Buscar</a>
+                   class="btn btn-success">Buscar</a>
                 <br/>
                 <br/>
             </div>
@@ -46,4 +46,9 @@
         </nav>
 
 
- }
+
+
+
+
+
+        }
