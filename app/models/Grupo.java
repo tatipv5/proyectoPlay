@@ -35,7 +35,9 @@ public class Grupo extends Model{
    
    public static  boolean agregarCEstud(Long estud){
        if(cont<25){
+           
            listaEstudiantes.add(estud);
+           cont++;
            return true;
        }
        return false;
