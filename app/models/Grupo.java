@@ -21,12 +21,13 @@ public class Grupo extends Model{
     @Constraints.Min(10)
     public Long id;
     
+      @Constraints.Required
+   public String nombre;
     
    @Constraints.Required
-   public int identificador;
+   public String identificador;
    
-   @Constraints.Required
-   public String nombre;
+ 
    
     static public ArrayList<Long>listaEstudiantes;
    
@@ -34,7 +35,9 @@ public class Grupo extends Model{
    
    public static  boolean agregarCEstud(Long estud){
        if(cont<25){
+           
            listaEstudiantes.add(estud);
+           cont++;
            return true;
        }
        return false;

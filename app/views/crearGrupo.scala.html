@@ -21,23 +21,19 @@
             'class -> "form-control"
             )</div>
         
-        <div class="col-md-4">
-            @textarea(searchForm("Identificardor"),
-            '_help -> "Incluyendo ceros",
-            'class -> "form-control")
-        </div>
+       <div class="col-md-4"> @inputText(
+            searchForm("identificador"),
+            '_label -> "Identificador",
+            '_help -> "required",
+            'class -> "form-control"
+            )</div>
        
     </div>
 
 
 
-    @input(searchForm("requerida")) { (id, name, value, args) =>
-
-    <select name="@name" id="@id" @toHtmlArgs(args)>
-            <option value="true" selected>I ciclo</option>
-        <option value="false">II ciclo</option>
-    </select>
-    }
+   
+   
 
 </fieldset>
 
