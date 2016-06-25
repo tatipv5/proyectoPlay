@@ -33,9 +33,9 @@ public class ControllersCurso extends Controller {
     
     
     public Result listaCursos() {
-     List<Curso>curs=Curso.find.all();
+     List<Curso> curs=Curso.find.all();
      Form<Curso> cursoForm  = formFactory.form(Curso.class);
-      return ok(crearEliminarEditarCurso.render("Listado de Curso",curs));
+      return ok(crearEliminarEditarCurso.render("Listado de Curso",curs,cursoForm));
    }
      
        public Result crearCursoGet() {
@@ -86,10 +86,10 @@ public class ControllersCurso extends Controller {
         return redirect(routes.ControllersCurso.listaCursos());
     }
     
-    public Result EliminarGrupo(Long id) {
+    public Result eliminarCurso(Long id) {
         Curso instancia = Curso.find.byId(id);
         instancia.delete();
-        return redirect(routes.ControllersCurso.listaGrupos());
+        return redirect(routes.ControllersCurso.listaCursos());
     } 
     
 }
