@@ -60,7 +60,7 @@ public class ControllerEstudiant extends Controller {
     public Result listaEstudiantes() {
         List<Estudiant> estud = Estudiant.find.all();
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class);
-        return ok(crearEliminarEditar.render("Listado de estudiantes", estud, EstuForm));
+        return ok(crearEstudiant.render("Listado de estudiantes", estud, EstuForm));
     }
 
      public Result listaInfoEstudiantes() {
