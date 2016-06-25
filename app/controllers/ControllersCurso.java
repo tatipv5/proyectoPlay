@@ -35,7 +35,7 @@ public class ControllersCurso extends Controller {
     public Result listaCursos() {
      List<Curso>curs=Curso.find.all();
      Form<Curso> cursoForm  = formFactory.form(Curso.class);
-      return ok(crearEliminarEditarCurso.render("Listado de Curso",curs));
+      return ok(crearEliminarEditarCurso.render("Listado de Curso",curs,cursoForm));
    }
      
        public Result crearCursoGet() {
