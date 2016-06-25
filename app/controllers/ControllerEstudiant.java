@@ -49,7 +49,7 @@ public class ControllerEstudiant extends Controller {
             Estudiant estu = EstuForm.get();
             estu.save();
             EstuForm = formFactory.form(Estudiant.class);
-            //  models.Grupo.agregarCEstud(estu.id);
+             models.Grupo.agregarCEstud(estu.id);
             // ok(crearEstudiant.render("se ha insertado", EstuForm ,
             //    routes.ControllerEstudiant.crearEstudiantesPost()));
         }
@@ -60,7 +60,7 @@ public class ControllerEstudiant extends Controller {
     public Result listaEstudiantes() {
         List<Estudiant> estud = Estudiant.find.all();
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class);
-        return ok(crearEstudiant.render("Listado de estudiantes", estud, EstuForm));
+        return ok(crearEliminarEditar.render("Listado de estudiantes", estud, EstuForm));
     }
 
      public Result listaInfoEstudiantes() {
