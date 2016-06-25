@@ -86,5 +86,7 @@ POST    /editarGrupo/:id       controllers.ControllerGrupo.editarGrupoPost(id: L
 GET     /eliminarGrupo/:id       controllers.ControllerGrupo.EliminarGrupo(id: Long)
 
 #CURSOS
-GET     /listaCursos      controllers.ControllersCurso.listaCursos()
+#GET     /listaCursos      controllers.ControllersCurso.listaCursos()
 
+GET     /crearCurso         controllers.ControllersCurso.crearCursoGet()
+POST    /crearCurso         controllers.ControllersCurso.crearCursoPost()

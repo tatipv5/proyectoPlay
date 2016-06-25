@@ -32,11 +32,34 @@ public class ControllersCurso extends Controller {
     
     
     
-     public Result listaCursos() {
-     List<Curso>Cur=Curso.find.all();
-     Form<Curso> cursoForm  = formFactory.form(Curso.class);
-    
-      return ok(crearCurso.render("Listado de curso",Cur));
-   }
+//     public Result listaCursos() {
+//     List<Curso>Cur=Curso.find.all();
+//     Form<Curso> cursoForm  = formFactory.form(Curso.class);
+//    
+//      return ok(crearCurso.render("Listado de curso",Cur,cursoForm));
+//   }
+     
+       public Result crearCursoGet() {
+            Form<Curso> cursoForm  = formFactory.form(Curso.class);
+            return ok(crearCurso.render("Crear curso",
+                   cursoForm,
+                    routes.ControllersCurso.crearCursoPost()));
+        }//Fin
+
+    public Result crearCursoPost() {
+            Form<Curso> cursoForm = formFactory.form(Curso.class).bindFromRequest();
+            
+            if (cursoForm.hasErrors()) {
+                return badRequest(crearCurso.render( "Se han encontrado errores",
+                        cursoForm, routes.ControllersCurso.indexC()));
+            } else {
+                Curso curso= cursoForm.get();
+                curso.save();
+                cursoForm = formFactory.form(Curso.class);
+               
+            }
+            return ok(crearCurso.render("El curso ha sido creado correctamente", cursoForm ,
+                    routes.ControllersCurso.crearCursoPost()));
+        }//Fian del método.
 }
 
