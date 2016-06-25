@@ -59,7 +59,8 @@ import views.html.*;
         public Result listaEstudiantes() {
        List<Estudiant>estud=Estudiant.find.all();
        Form<Estudiant> EstuForm  = formFactory.form(Estudiant.class);
-       return ok(crearEliminarEditar.render("Listado de estudiantes", estud,EstuForm));
+       return ok(crearEliminarEditar.render("Listado de estudiantes", estu
+               d,EstuForm));
     }
         
     public Result editarEstudianteGet(Long id) {
