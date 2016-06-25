@@ -122,7 +122,7 @@ import views.html.*;
         return ok(informacionEstudiante.render("Informacion Estudiantes",
                 EstuForm, routes.ControllerEstudiant.InformacionEstudiantePost(id)));
     }
-    
+     //lol
      public Result InformacionEstudiantePost(Long id) {
        Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
