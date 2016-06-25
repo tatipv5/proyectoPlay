@@ -40,7 +40,7 @@ public class ControllerEstudiant extends Controller {
 
     public Result crearEstudiantesPost() {
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).bindFromRequest();
-
+         models.Grupo instancia = models.Grupo.find.byId(id);
         if (EstuForm.hasErrors()) {
 
             return badRequest(crearEstudiant.render("Se han encontrado errores",
@@ -49,9 +49,8 @@ public class ControllerEstudiant extends Controller {
             Estudiant estu = EstuForm.get();
             estu.save();
             EstuForm = formFactory.form(Estudiant.class);
-            //  models.Grupo.agregarCEstud(estu.id);
-            // ok(crearEstudiant.render("se ha insertado", EstuForm ,
-            //    routes.ControllerEstudiant.crearEstudiantesPost()));
+               models.Grupo.agregarCEstud(estu.id);
+           
         }
         return ok(crearEstudiant.render("La matricula ha sido creada correctamente", EstuForm,
                 routes.ControllerEstudiant.crearEstudiantesPost()));
