@@ -15,6 +15,7 @@ POST    /crearEstudiant           controllers.ControllerEstudiant.crearEstudiant
 
 #Listar
 GET     /listaEstudiantes        controllers.ControllerEstudiant.listaEstudiantes()
+GET     /listaInfoEstudiantes    controllers.ControllerEstudiant.listaInfoEstudiantes()
 
 #Editar..
 GET     /editarEstudiante/:id       controllers.ControllerEstudiant.editarEstudianteGet(id: Long)
