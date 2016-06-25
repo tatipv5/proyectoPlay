@@ -47,16 +47,15 @@ public class ControllerGrupo extends Controller {
 
     public Result crearGrupoPost() {
             Form<Grupo> grupoForm = formFactory.form(Grupo.class).bindFromRequest();
-
+            
             if (grupoForm.hasErrors()) {
-
                 return badRequest(crearGrupo.render( "Se han encontrado errores",
                         grupoForm, routes.ControllerGrupo.indexG()));
             } else {
                 Grupo grup= grupoForm.get();
                 grup.save();
                 grupoForm = formFactory.form(Grupo.class);
-               // models.Grupo.agregarCEstud(grup.id);
+               
             }
             return ok(crearGrupo.render("El grupo  ha sido creado correctamente", grupoForm ,
                     routes.ControllerGrupo.crearGrupoPost()));

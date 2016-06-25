@@ -21,12 +21,13 @@ public class Grupo extends Model{
     @Constraints.Min(10)
     public Long id;
     
+      @Constraints.Required
+   public String nombre;
     
    @Constraints.Required
-   public int identificador;
+   public String identificador;
    
-   @Constraints.Required
-   public String nombre;
+ 
    
     static public ArrayList<Long>listaEstudiantes;
    
