@@ -21,11 +21,12 @@
             'class -> "form-control"
             )</div>
         
-        <div class="col-md-4">
-            @textarea(searchForm("Identificardor"),
-            '_help -> "Incluyendo ceros",
-            'class -> "form-control")
-        </div>
+       <div class="col-md-4"> @inputText(
+            searchForm("identificador"),
+            '_label -> "Identificador",
+            '_help -> "required",
+            'class -> "form-control"
+            )</div>
        
     </div>
 
