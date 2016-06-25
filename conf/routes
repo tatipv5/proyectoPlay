@@ -39,6 +39,7 @@ POST    /informacionEstudiante/:id       controllers.ControllerEstudiant.Informa
 #DOCENTES
 #Listar docente
 GET     /listaDocentes        controllers.ControllerDocente.listaDocentes()
+GET     /listaInfoDocentes    controllers.ControllerDocente.listaInfoDocentes() 
 
 # CrearDocentes  
 GET     /crearDocente           controllers.ControllerDocente.crearDocenteGet()

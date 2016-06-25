@@ -58,6 +58,13 @@ import views.html.*;
        return ok(crearEliminarEditarDocente.render("Listado de docentes", docen,DoceForm));
     }
      
+     public Result listaInfoDocentes(){
+         List<Docente>docen=Docente.find.all();
+         Form<Docente>DoceForm = formFactory.form(Docente.class);
+         return ok(informacionDocente.render("Lista de Docentes", docen, DoceForm));
+     }
+     
+     
      public Result editarDocenteGet(Long id) {
        Docente instancia = Docente.find.byId(id);
         Form<Docente> DocenForm = formFactory.form(Docente.class).fill(instancia);
@@ -121,23 +128,15 @@ import views.html.*;
     public Result InformacionDocentesGet(Long id) {
         Docente instancia = Docente.find.byId(id);
         Form<Docente> DocenForm = formFactory.form(Docente.class).fill(instancia);
-        return ok(informacionDocente.render("Informacion Docente",
-                DocenForm, routes.ControllerDocente.InformacionDocentePost(id)));
+        return ok(crearDocente.render("Informacion Docente",
+               DocenForm, routes.ControllerDocente.EditarDocentePost(id)));
     }
+    
      public Result InformacionDocentePost(Long id) {
        Docente instancia = Docente.find.byId(id);
         Form<Docente> DocenForm = formFactory.form(Docente.class
         ).fill(instancia).bindFromRequest();
-        if (DocenForm .hasErrors()) {
-            return badRequest(informacionDocente.render(
-                    "Encontramos errores", DocenForm ,
-                    routes.ControllerDocente.InformacionDocentePost(id)
-            ));
-        }
-
-        return redirect(routes.ControllerDocente.listaDocentes());
+        return redirect(routes.ControllerDocente.listaInfoDocentes());
     }
-      
-     
      
     }//Fin de la clase.

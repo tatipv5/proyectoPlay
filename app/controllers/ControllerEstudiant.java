@@ -128,8 +128,8 @@ public class ControllerEstudiant extends Controller {
     public Result InformacionEstudianteGet(Long id) {
         Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
-        return ok(informacionEstudiante.render("Informacion Estudiantes",
-                EstuForm, routes.ControllerEstudiant.InformacionEstudiantePost(id)));
+        return ok(crearEstudiant.render("Formulario de estudiante",
+                EstuForm, routes.ControllerEstudiant.editarEstudiantePost(id)));
     }
     //lol
 
@@ -137,13 +137,6 @@ public class ControllerEstudiant extends Controller {
         Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
         ).fill(instancia).bindFromRequest();
-//        if (EstuForm.hasErrors()) {
-//            return badRequest(informacionEstudiante.render(
-//                    "Encontramos errores", EstuForm,
-//                    routes.ControllerEstudiant.InformacionEstudianteGet(id)
-//            ));
-//        }
-
         return redirect(routes.ControllerEstudiant.listaInfoEstudiantes());
     }
 

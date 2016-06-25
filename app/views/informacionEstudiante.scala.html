@@ -6,30 +6,32 @@
 <h1> Lista de estudiantes </h1>
 
 <ul class="list-group">
-    @for(estu <- estudi) {
-    <li class="list-group-item" >@estu.nombre
+    @for(estud <- estudi) {
+    <li class="list-group-item" >@estud.nombre
         <div class="btn-group pull-right" role="group" aria-label="...">
             <a  
-               class="btn btn-success">Informacion</a>
-                
-           
+               class="btn btn-success">Info</a>
+            <a  
+               class="btn btn-success">PDF</a>
         </div>
+
 
     </li>
     }
 </ul>
 
- <fieldset>
 
-        <div class="row">
-            <div class="col-md-4">  @inputText( 
-                searchForm("buscar"),
-                '_label -> "Busca el estudiante",
-                '_help -> "Ingrese el id",
-                'class -> "form-control"
-                )</div>
-            
-         
+
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-4">  @inputText( 
+            searchForm("buscar"),
+            '_label -> "Busca el estudiante",
+            '_help -> "Ingrese el id",
+            'class -> "form-control"
+            )</div>
+
         <nav class="form-actions text-center">
             <div class="form-actions text-center">
 
@@ -44,4 +46,9 @@
         </nav>
 
 
-}
+
+
+
+
+
+        }
