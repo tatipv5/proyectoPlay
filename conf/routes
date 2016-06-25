@@ -92,4 +92,6 @@ GET     /crearCurso         controllers.ControllersCurso.crearCursoGet()
 POST    /crearCurso         controllers.ControllersCurso.crearCursoPost()
 
 GET     /editarCurso/:id     controllers.ControllersCurso.editarCursoGet(id: Long)
-POST    /editarCurso/:id       controllers.ControllersCurso.editarCursoPost(id: Long)   
+POST    /editarCurso/:id       controllers.ControllersCurso.editarCursoPost(id: Long) 
+
+GET      /eliminarCurso/:id       controllers.ControllersCurso.eliminarCurso(id: Long) 
