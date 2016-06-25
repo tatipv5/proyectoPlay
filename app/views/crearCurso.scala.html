@@ -14,6 +14,13 @@
 <fieldset>
 
     <div class="row">
+         <div class="col-md-4"> @inputText(
+            searchForm("nombre"),
+            '_label -> "Nombre",
+            '_help -> "required",
+            'class -> "form-control"
+            )</div>
+        
         <div class="col-md-4"> @inputText(
             searchForm("identificador"),
             '_label -> "Identificador",

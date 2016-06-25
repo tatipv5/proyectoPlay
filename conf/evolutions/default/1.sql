@@ -5,6 +5,7 @@
 
 create table curso (
   id                            bigint auto_increment not null,
+  nombre                        varchar(255),
   identificador                 varchar(255),
   constraint pk_curso primary key (id)
 );
