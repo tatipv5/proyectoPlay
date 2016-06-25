@@ -144,7 +144,7 @@ public class ControllerEstudiant extends Controller {
 //            ));
 //        }
 
-        return redirect(routes.ControllerEstudiant.listaEstudiantes());
+        return redirect(routes.ControllerEstudiant.listaInfoEstudiantes());
     }
 
 }//Fin de la clase
