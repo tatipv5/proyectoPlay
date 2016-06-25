@@ -137,14 +137,14 @@ public class ControllerEstudiant extends Controller {
         Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
         ).fill(instancia).bindFromRequest();
-        if (EstuForm.hasErrors()) {
-            return badRequest(informacionEstudiante.render(
-                    "Encontramos errores", EstuForm,
-                    routes.ControllerEstudiant.InformacionEstudianteGet(id)
-            ));
-        }
+//        if (EstuForm.hasErrors()) {
+//            return badRequest(informacionEstudiante.render(
+//                    "Encontramos errores", EstuForm,
+//                    routes.ControllerEstudiant.InformacionEstudianteGet(id)
+//            ));
+//        }
 
-        return redirect(routes.ControllerEstudiant.listaEstudiantes());
+        return redirect(routes.ControllerEstudiant.listaInfoEstudiantes());
     }
 
 }//Fin de la clase
