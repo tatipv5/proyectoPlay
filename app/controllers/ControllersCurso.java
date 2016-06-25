@@ -32,12 +32,11 @@ public class ControllersCurso extends Controller {
     
     
     
-//     public Result listaCursos() {
-//     List<Curso>Cur=Curso.find.all();
-//     Form<Curso> cursoForm  = formFactory.form(Curso.class);
-//    
-//      return ok(crearCurso.render("Listado de curso",Cur,cursoForm));
-//   }
+    public Result listaCursos() {
+     List<Curso>curs=Curso.find.all();
+     Form<Curso> cursoForm  = formFactory.form(Curso.class);
+      return ok(crearEliminarEditarCurso.render("Listado de Curso",curs));
+   }
      
        public Result crearCursoGet() {
             Form<Curso> cursoForm  = formFactory.form(Curso.class);
@@ -61,5 +60,37 @@ public class ControllersCurso extends Controller {
             return ok(crearCurso.render("El curso ha sido creado correctamente", cursoForm ,
                     routes.ControllersCurso.crearCursoPost()));
         }//Fian del método.
+    
+     public Result editarCursoGet(Long id) {
+        Curso instancia = Curso.find.byId(id);
+        Form<Curso> cursoForm = formFactory.form(Curso.class).fill(instancia);
+        return ok(crearCurso.render("Formulario de curso",
+                cursoForm, routes.ControllersCurso.editarCursoPost(id)));
+    }
+    
+    public Result editarCursoPost(Long id) {
+       Curso instancia = Curso.find.byId(id);
+        Form<Curso> cursoForm = formFactory.form(Curso.class
+        ).fill(instancia).bindFromRequest();
+        if (cursoForm .hasErrors()) {
+            return badRequest(crearCurso.render(
+                    "Encontramos errores", cursoForm ,
+                    routes.ControllersCurso.editarCursoPost(id)
+            ));
+        }
+      Curso curs = cursoForm.get();
+  
+        instancia.nombre= curs.nombre;
+        instancia.identificador = curs.identificador;
+        instancia.save();
+        return redirect(routes.ControllersCurso.listaCursos());
+    }
+    
+    public Result EliminarGrupo(Long id) {
+        Curso instancia = Curso.find.byId(id);
+        instancia.delete();
+        return redirect(routes.ControllersCurso.listaGrupos());
+    } 
+    
 }
 

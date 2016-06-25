@@ -24,6 +24,9 @@ public class Curso extends Model {
     public Long id;
 
     @Constraints.Required
+    public String nombre;
+    
+    @Constraints.Required
     public String identificador;
     
     
