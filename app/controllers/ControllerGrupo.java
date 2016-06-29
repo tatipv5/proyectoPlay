@@ -64,7 +64,7 @@ public class ControllerGrupo extends Controller {
     public Result editarGrupoGet(Long id) {
         Grupo instancia = Grupo.find.byId(id);
         Form<Grupo> grupoForm = formFactory.form(Grupo.class).fill(instancia);
-        return ok(crearGrupo.render("Formulario de curso",
+        return ok(crearGrupo.render("Formulario de grupo",
                 grupoForm, routes.ControllerGrupo.editarGrupoPost(id)));
     }
     
