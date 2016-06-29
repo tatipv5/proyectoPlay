@@ -33,11 +33,13 @@ public class Grupo extends Model{
    
    static int cont=0;
    
+//   metodo donde creamos un array que va a guardar estudiantes en un array
    public static  boolean agregarCEstud(Long estud){
        if(cont<25){
            
            listaEstudiantes.add(estud);
            cont++;
+           System.out.println("hola");
            return true;
        }
        return false;

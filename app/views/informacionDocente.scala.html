@@ -1,37 +1,54 @@
-@(message: String,  searchForm: Form[Docente], postUrl: play.api.mvc.Call)
+@(message: String, docent: List[Docente],searchForm:Form[Docente])
 @import helper._
 
 @main(message) {
 
-<div class="alert"> @message </div>
-@form(postUrl, 'class -> "form") {
-    @if(searchForm.hasGlobalErrors) {
-        <div class="alert alert-danger">
-            @searchForm.globalError.message
+<h1> Lista de estudiantes </h1>
+
+<ul class="list-group">
+    @for(docen <- docent) {
+    <li class="list-group-item" >@docen.nombre
+        <div class="btn-group pull-right" role="group" aria-label="...">
+            <a  
+               class="btn btn-success">Info</a>
+            <a  
+               class="btn btn-success">PDF</a>
         </div>
+
+
+    </li>
     }
+</ul>
 
-    <fieldset>
 
-        <div class="row">
-            <div class="col-md-4">  @inputText( 
-                searchForm("id"),
-                '_label -> "Información docente:",
-                '_help -> "Campo de texto.",
-                'class -> "form-control"
-                )</div>
-            
-            <div class="col-md-4">
-                @textarea(searchForm("PDF"),
-                '_help -> "Generacion de PDF.",
-                'class -> "form-control")
+
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-4">  @inputText( 
+            searchForm("buscar"),
+            '_label -> "Busca el estudiante",
+            '_help -> "Ingrese el id",
+            'class -> "form-control"
+            )</div>
+
+        <nav class="form-actions text-center">
+            <div class="form-actions text-center">
+
+                <br/>
+                <br/>
+                <a  
+                   class="btn btn-success">Buscar</a>
+                <br/>
+                <br/>
             </div>
-            
-         <div class="form-actions text-center">
-        <input type="submit" class="btn btn-success" value="Buscar") >  
-    </div>
-     <div class="form-actions text-center">
-        <input type="submit" class="btn btn-success" value="Volver") >  
-    </div>
-    }
- }
+            <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+        </nav>
+
+
+
+
+
+
+
+        }

@@ -40,18 +40,20 @@ public class ControllerEstudiant extends Controller {
 
     public Result crearEstudiantesPost() {
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).bindFromRequest();
-
+      //   models.Grupo instancia = models.Grupo.find.byId(id);
         if (EstuForm.hasErrors()) {
 
             return badRequest(crearEstudiant.render("Se han encontrado errores",
                     EstuForm, routes.ControllerEstudiant.indexE()));
         } else {
             Estudiant estu = EstuForm.get();
+           System.out.print("paso");
             estu.save();
+            System.out.println("id de estudante: "+estu.id);
             EstuForm = formFactory.form(Estudiant.class);
-             models.Grupo.agregarCEstud(estu.id);
-            // ok(crearEstudiant.render("se ha insertado", EstuForm ,
-            //    routes.ControllerEstudiant.crearEstudiantesPost()));
+//            llamamos aqui el metodo hecho en el grupo, para poder guardar estudiantes en el array en grupo  
+            models.Grupo.agregarCEstud(estu.id);
+           
         }
         return ok(crearEstudiant.render("La matricula ha sido creada correctamente", EstuForm,
                 routes.ControllerEstudiant.crearEstudiantesPost()));
