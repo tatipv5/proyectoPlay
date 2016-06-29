@@ -40,7 +40,7 @@ public class ControllerEstudiant extends Controller {
 
     public Result crearEstudiantesPost() {
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).bindFromRequest();
-      //   models.Grupo instancia = models.Grupo.find.byId(id);
+        //models.Grupo instancia = models.Grupo.find.byId(id);
         if (EstuForm.hasErrors()) {
 
             return badRequest(crearEstudiant.render("Se han encontrado errores",
