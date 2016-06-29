@@ -17,6 +17,7 @@ import play.data.validation.Constraints;
  */
 @Entity
 public class Grupo extends Model{
+    String estudiante;
     @Id
     @Constraints.Min(10)
     public Long id;
@@ -27,16 +28,21 @@ public class Grupo extends Model{
    @Constraints.Required
    public String identificador;
    
- 
-   
-    static public ArrayList<Long>listaEstudiantes;
-   
+// public String getEstudiante(){
+//     return estudiante;
+// }
+//   
+//   public void setEstudiante(String nombre){
+//       estudiante=nombre;
+//   }
+//   
+    static public ArrayList<Estudiant>listaEstudiantes =new ArrayList<>();
    static int cont=0;
    
 //   metodo donde creamos un array que va a guardar estudiantes en un array
-   public static  boolean agregarCEstud(Long estud){
+   public static  boolean agregarCEstud(Estudiant estud){
        if(cont<25){
-           listaEstudiantes =new ArrayList<>();
+         
            listaEstudiantes.add(estud);
            cont++;
            System.out.println("El estudiante agregado es: "+estud);
