@@ -28,27 +28,27 @@ public class Grupo extends Model{
    @Constraints.Required
    public String identificador;
    
-    @Constraints.Required
-   public String estudiante;
+//    @Constraints.Required
+//   public String estudiante="";
+//   
+// public String getEstudiante(){
+//     return estudiante;
+// }
+//   
+//   public void setEstudiante(String nombre){
+//       estudiante=nombre;
+//   }
    
- public String getEstudiante(){
-     return estudiante;
- }
-   
-   public void setEstudiante(String nombre){
-       estudiante=nombre;
-   }
-   
-     public ArrayList<String>listaEstudiantes =new ArrayList<>();
+     public ArrayList<Long>listaEstudiantes =new ArrayList<>();
     int cont=0;
    
 //   metodo donde creamos un array que va a guardar estudiantes en un array
    //@Constraints.Required
-   public   boolean agregarCEstud(String estud){
+   public   boolean agregarCEstud(Long estud){
        if(cont<25){
          
            listaEstudiantes.add(estud);
-           estudiante=nombre;
+           
            cont++;
            System.out.println("El estudiante agregado es: "+estud);
            return true;
