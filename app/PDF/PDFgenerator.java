@@ -26,17 +26,17 @@
 //import javax.inject.Singleton;
 //
 
-package PDF;
-
-import java.util.ArrayList;
-import java.util.List;
+//package PDF;
+//
+//import java.util.ArrayList;
+//import java.util.List;
 
 /**
  *
  * @author usuario
  */
-<<<<<<< HEAD
-public class PDFgenerator {
+
+//public class PDFgenerator {
 //    
 //    private List<String> defaultFonts = null;
 //
@@ -233,4 +233,3 @@ public class PDFgenerator {
 //
 //}//Fin de la clase.
 //    
->>>>>>> origin/master

@@ -26,8 +26,8 @@
  *
  * @author usuario
  */
-<<<<<<< HEAD
-public class PDFuser  {
+
+//public class PDFuser  {
 //
 //	public PdfUserAgent(ITextOutputDevice outputDevice) {
 //		super(outputDevice);
@@ -208,4 +208,4 @@ public class PDFuser  {
 //}//Fin de la clase
 //    
 //
->>>>>>> origin/master
+
