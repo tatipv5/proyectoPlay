@@ -102,5 +102,7 @@ POST    /editarCurso/:id       controllers.ControllersCurso.editarCursoPost(id: 
 
 GET      /eliminarCurso/:id       controllers.ControllersCurso.eliminarCurso(id: Long) 
 
+#horario
+GET     /horarios                     controllers.HomeController.listaHorarios()
 #listinfogrupo
 GET     /listaInfoGrupo      controllers.ControllerGrupo.listaInfoGrupo()

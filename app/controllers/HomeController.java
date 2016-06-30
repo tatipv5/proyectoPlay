@@ -33,6 +33,10 @@ public class HomeController extends Controller {
         
         return ok(index.render("Gestion Instituto") );
     }
+    public Result listaHorarios() {
+        
+        return ok(horario.render("Horarios") );
+    }
     
    //PICHAAAAAAAAAAAA
            
