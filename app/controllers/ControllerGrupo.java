@@ -92,7 +92,7 @@ public class ControllerGrupo extends Controller {
         instancia.delete();
         return redirect(routes.ControllerGrupo.listaGrupos());
     } 
- //InformaciónEstudiant
+ //InfoGrupo
     public Result InformacionGrupoGet(Long id) {
         Grupo instancia = Grupo.find.byId(id);
         Form<Grupo> grupForm = formFactory.form(Grupo.class).fill(instancia);

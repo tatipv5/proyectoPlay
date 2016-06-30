@@ -91,6 +91,24 @@ public class ControllersCurso extends Controller {
         instancia.delete();
         return redirect(routes.ControllersCurso.listaCursos());
     } 
-    
+    //infoCurso
+    public Result InformacionCursoGet(Long id) {
+        Curso instancia = Curso.find.byId(id);
+        Form<Curso> grupForm = formFactory.form(Curso.class).fill(instancia);
+        return ok(crearCurso.render("Formulario de grupo",
+                grupForm, routes.ControllersCurso.editarCursoPost(id)));
+    }
+ 
+    public Result InformacionCursoPost(Long id) {
+        Curso instancia = Curso.find.byId(id);
+        Form<Curso> cursForm = formFactory.form(Curso.class
+        ).fill(instancia).bindFromRequest();
+        return redirect(routes.ControllersCurso.listaInfoCurso());
+    }
+      public Result listaInfoCurso() {
+        List<Curso> curs = Curso.find.all();
+        Form<Curso> cursForm = formFactory.form(Curso.class);
+        return ok(informacionCurso.render("Listado de grupos", curs, cursForm));
+    }
 }
 
