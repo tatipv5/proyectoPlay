@@ -6,6 +6,7 @@ import play.data.Form;
 import play.mvc.*;
 import static play.mvc.Results.ok;
 import models.Estudiant;
+import models.Grupo;
 import play.data.FormFactory;
 import static play.mvc.Results.ok;
 import views.html.*;
@@ -18,6 +19,10 @@ public class ControllerEstudiant extends Controller {
 
     @Inject
     FormFactory formFactory;
+    
+    @Inject 
+    Grupo grupo;
+    
 
     /**
      * An action that renders an HTML page with a welcome message. The
@@ -52,9 +57,10 @@ public class ControllerEstudiant extends Controller {
             System.out.println("id de estudante: "+estu.id);
             EstuForm = formFactory.form(Estudiant.class);
 //            llamamos aqui el metodo hecho en el grupo, para poder guardar estudiantes en el array en grupo  
-            models.Grupo.agregarCEstud(estu);
-            
+            grupo.agregarCEstud(estu.nombre);
+           // models.Grupo.setEstudiante(estu.nombre);
          //   System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmm "+estu.id);
+
         }
         return ok(crearEstudiant.render("La matricula ha sido creada correctamente", EstuForm,
                 routes.ControllerEstudiant.crearEstudiantesPost()));
