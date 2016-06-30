@@ -30,8 +30,8 @@ public class Curso extends Model {
     public String identificador;
     
     
-    ArrayList<Grupo> arrayGrupo = new ArrayList<Grupo>();
-     ArrayList<Docente> arrayDocente = new ArrayList<Docente>();
-    
+    static public ArrayList<Grupo>listaGrupos =new ArrayList<>();
+     static public ArrayList<Docente>listaDocentes =new ArrayList<>();
+     
     public static Finder<Long, Curso> find = new Finder<Long, Curso>(Curso.class); 
 }

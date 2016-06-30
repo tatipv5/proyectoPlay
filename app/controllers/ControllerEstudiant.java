@@ -52,12 +52,14 @@ public class ControllerEstudiant extends Controller {
             System.out.println("id de estudante: "+estu.id);
             EstuForm = formFactory.form(Estudiant.class);
 //            llamamos aqui el metodo hecho en el grupo, para poder guardar estudiantes en el array en grupo  
-            models.Grupo.agregarCEstud(estu.id);
-<<<<<<< HEAD
-           
-=======
+
+            //models.Grupo.agregarCEstud(estu.id);
+
+            models.Grupo.agregarCEstud(estu);
+            
+
          //   System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmm "+estu.id);
->>>>>>> origin/master
+
         }
         return ok(crearEstudiant.render("La matricula ha sido creada correctamente", EstuForm,
                 routes.ControllerEstudiant.crearEstudiantesPost()));
