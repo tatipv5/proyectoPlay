@@ -49,15 +49,15 @@ public class ControllerGrupo extends Controller {
     public Result crearGrupoPost() {
             Form<Grupo> grupoForm = formFactory.form(Grupo.class).bindFromRequest();
             
-//            if (grupoForm.hasErrors()) {
-//                return badRequest(crearGrupo.render( "Se han encontrado errores",
-//                        grupoForm, routes.ControllerGrupo.indexG()));
-//            } else {
+            if (grupoForm.hasErrors()) {
+                return badRequest(crearGrupo.render( "Se han encontrado errores",
+                        grupoForm, routes.ControllerGrupo.indexG()));
+            } else {
                 Grupo grup= grupoForm.get();
                 grup.save();
                 grupoForm = formFactory.form(Grupo.class);
                
-//            }
+            }
             return ok(crearGrupo.render("El grupo  ha sido creado correctamente", grupoForm ,
                     routes.ControllerGrupo.crearGrupoPost()));
         }//Fian del método.
@@ -97,7 +97,7 @@ public class ControllerGrupo extends Controller {
         Grupo instancia = Grupo.find.byId(id);
         Form<Grupo> grupForm = formFactory.form(Grupo.class).fill(instancia);
         return ok(crearGrupo.render("Formulario de grupo",
-                grupForm, routes.ControllerGrupo.InformacionGrupoPost(id)));
+                grupForm, routes.ControllerGrupo.editarGrupoPost(id)));
     }
     //lol
 
@@ -105,7 +105,7 @@ public class ControllerGrupo extends Controller {
         Grupo instancia = Grupo.find.byId(id);
         Form<Grupo> grupForm = formFactory.form(Grupo.class
         ).fill(instancia).bindFromRequest();
-        return redirect(routes.ControllerGrupo.editarGrupoPost());
+        return redirect(routes.ControllerGrupo.listaInfoGrupo());
     }
       public Result listaInfoGrupo() {
         List<Grupo> grup = Grupo.find.all();
