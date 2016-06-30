@@ -17,6 +17,7 @@ import models.Curso;
 import models.Estudiant;
 import play.data.FormFactory;
 import static play.mvc.Results.ok;
+import static play.mvc.Results.redirect;
 import views.html.*;
 /**
  *
@@ -91,5 +92,25 @@ public class ControllerGrupo extends Controller {
         instancia.delete();
         return redirect(routes.ControllerGrupo.listaGrupos());
     } 
+ //InformaciónEstudiant
+    public Result InformacionGrupoGet(Long id) {
+        Grupo instancia = Grupo.find.byId(id);
+        Form<Grupo> grupForm = formFactory.form(Grupo.class).fill(instancia);
+        return ok(crearGrupo.render("Formulario de grupo",
+                grupForm, routes.ControllerGrupo.InformacionGrupoPost(id)));
+    }
+    //lol
+
+    public Result InformacionGrupoPost(Long id) {
+        Grupo instancia = Grupo.find.byId(id);
+        Form<Grupo> grupForm = formFactory.form(Grupo.class
+        ).fill(instancia).bindFromRequest();
+        return redirect(routes.ControllerGrupo.editarGrupoPost());
+    }
+      public Result listaInfoGrupo() {
+        List<Grupo> grup = Grupo.find.all();
+        Form<Grupo> grupForm = formFactory.form(Grupo.class);
+        return ok(informacionGrupo.render("Listado de grupos", grup, grupForm));
+    }
 
 }

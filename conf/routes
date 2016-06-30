@@ -84,6 +84,10 @@ POST    /crearGrupo          controllers.ControllerGrupo.crearGrupoPost()
 GET     /editarGrupo/:id       controllers.ControllerGrupo.editarGrupoGet(id: Long)
 POST    /editarGrupo/:id       controllers.ControllerGrupo.editarGrupoPost(id: Long)
 
+#informacion
+GET     /informacionGrupo/:id       controllers.ControllerGrupo.InformacionGrupoGet(id: Long)
+POST    /informacionGrupo/:id       controllers.ControllerGrupo.InformacionGrupoPost(id: Long)
+
 #Eliminar 
 GET     /eliminarGrupo/:id       controllers.ControllerGrupo.EliminarGrupo(id: Long)
 
@@ -100,3 +104,5 @@ GET      /eliminarCurso/:id       controllers.ControllersCurso.eliminarCurso(id:
 
 #horario
 GET     /horarios                     controllers.HomeController.listaHorarios()
+#listinfogrupo
+GET     /listaInfoGrupo      controllers.ControllerGrupo.listaInfoGrupo()
