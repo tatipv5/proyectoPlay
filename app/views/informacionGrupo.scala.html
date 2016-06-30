@@ -1,16 +1,55 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+@(message: String, Grup: List[Grupo],searchForm:Form[Grupo])
+@import helper._
+
+@main(message) {
+
+<h1> Lista de Grupos </h1>
+
+<ul class="list-group">
+    @for(grupo <- Grup) {
+    <li class="list-group-item" >@grupo.nombre
+        <div class="btn-group pull-right" role="group" aria-label="...">
+            <a  
+               class="btn btn-success">Info</a>
+            <a  
+               class="btn btn-success">PDF</a>
+        </div>
+
+
+    </li>
+    }
+</ul>
+
+
+
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-4">  @inputText( 
+            searchForm("buscar"),
+            '_label -> "Busca el grupo",
+            '_help -> "Ingrese el id",
+            'class -> "form-control"
+            )</div>
+
+        <nav class="form-actions text-center">
+            <div class="form-actions text-center">
+
+                <br/>
+                <br/>
+                <a  
+                   class="btn btn-success">Buscar</a>
+                <br/>
+                <br/>
+            </div>
+            <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+        </nav>
+
+
+
+
+
+
+
+        }
+
