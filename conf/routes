@@ -85,14 +85,17 @@ GET     /editarGrupo/:id       controllers.ControllerGrupo.editarGrupoGet(id: Lo
 POST    /editarGrupo/:id       controllers.ControllerGrupo.editarGrupoPost(id: Long)
 
 #informacion
+GET     /listaInfoGrupo            controllers.ControllerGrupo.listaInfoGrupo()
 GET     /informacionGrupo/:id       controllers.ControllerGrupo.InformacionGrupoGet(id: Long)
 POST    /informacionGrupo/:id       controllers.ControllerGrupo.InformacionGrupoPost(id: Long)
+
 
 #Eliminar 
 GET     /eliminarGrupo/:id       controllers.ControllerGrupo.EliminarGrupo(id: Long)
 
 #CURSOS
 GET     /listaCursos      controllers.ControllersCurso.listaCursos()
+GET     /listaInfoCursos      controllers.ControllersCurso.listaInfoCurso()
 
 GET     /crearCurso         controllers.ControllersCurso.crearCursoGet()
 POST    /crearCurso         controllers.ControllersCurso.crearCursoPost()
@@ -101,6 +104,11 @@ GET     /editarCurso/:id     controllers.ControllersCurso.editarCursoGet(id: Lon
 POST    /editarCurso/:id       controllers.ControllersCurso.editarCursoPost(id: Long) 
 
 GET      /eliminarCurso/:id       controllers.ControllersCurso.eliminarCurso(id: Long) 
+
+#informacion
+GET     /informacionCurso/:id       controllers.ControllersCurso.InformacionCursoGet(id: Long)
+POST    /informacionCurso/:id       controllers.ControllersCurso.InformacionCursoPost(id: Long)
+
 
 #horario
 GET     /horarios                     controllers.HomeController.listaHorarios()
