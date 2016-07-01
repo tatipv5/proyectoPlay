@@ -118,7 +118,7 @@ GET     /listaInfoGrupo      controllers.ControllerGrupo.listaInfoGrupo()
 
 GET     /mostrarEstudiante/:id       controllers.ControllerEstudiant.mostrarInfoGet(id: Long)
 POST    /mostrarEstudiante/:id       controllers.ControllerEstudiant.mostrarInfoPost(id: Long)
-GET     /listaMostrarInfo     controllers.ControllerEstudiant.listaMostrarEstudiantes()
+GET     /listaMostrarInfo    controllers.ControllerEstudiant.listaMostrarEstudiantes()
 
 #mostrar info docente
 GET     /mostrarDocente/:id       controllers.ControllerDocente.mostrarInfoGet(id: Long)
