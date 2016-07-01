@@ -17,12 +17,12 @@ import views.html.*;
  */
 public class ControllerEstudiant extends Controller {
 //tomennnn
+
     @Inject
     FormFactory formFactory;
-    
-    @Inject 
+
+    @Inject
     Grupo grupo;
-    
 
     /**
      * An action that renders an HTML page with a welcome message. The
@@ -30,7 +30,6 @@ public class ControllerEstudiant extends Controller {
      * be called when the application receives a <code>GET</code> request with a
      * path of <code>/</code>.
      */
-
     public Result indexE() {
 
         return ok(index.render("Gestion de Estudiantes"));
@@ -52,14 +51,14 @@ public class ControllerEstudiant extends Controller {
                     EstuForm, routes.ControllerEstudiant.indexE()));
         } else {
             Estudiant estu = EstuForm.get();
-           System.out.print("paso");
+            System.out.print("paso");
             estu.save();
-            System.out.println("id de estudiante: "+estu.id);
+            System.out.println("id de estudante: " + estu.id);
             EstuForm = formFactory.form(Estudiant.class);
 //            llamamos aqui el metodo hecho en el grupo, para poder guardar estudiantes en el array en grupo  
             grupo.agregarCEstud(estu.id);
-           // models.Grupo.setEstudiante(estu.nombre);
-           System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmm "+estu);
+            // models.Grupo.setEstudiante(estu.nombre);
+            System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmm " + estu);
 
         }
         return ok(crearEstudiant.render("La matricula ha sido creada correctamente", EstuForm,
@@ -72,7 +71,7 @@ public class ControllerEstudiant extends Controller {
         return ok(crearEliminarEditar.render("Listado de estudiantes", estud, EstuForm));
     }
 
-     public Result listaInfoEstudiantes() {
+    public Result listaInfoEstudiantes() {
         List<Estudiant> estud = Estudiant.find.all();
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class);
         return ok(informacionEstudiante.render("Listado de estudiantes", estud, EstuForm));
@@ -138,7 +137,7 @@ public class ControllerEstudiant extends Controller {
         Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
         return ok(crearEstudiant.render("Formulario de estudiante",
-                EstuForm, routes.ControllerEstudiant.editarEstudiantePost(id)));
+                EstuForm, routes.ControllerEstudiant.InformacionEstudiantePost(id)));
     }
     //lol
 
@@ -149,4 +148,40 @@ public class ControllerEstudiant extends Controller {
         return redirect(routes.ControllerEstudiant.listaInfoEstudiantes());
     }
 
+    //INFORMACION\
+    public Result mostrarInfoGet(Long id) {
+        Estudiant instancia = Estudiant.find.byId(id);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class);
+        return ok(crearEstudiant.render("Informacion Estudiante.",
+                EstuForm,
+                routes.ControllerEstudiant.mostrarInfoPost(id)));
+    }//Fin
+
+    public Result mostrarInfoPost(Long id) {
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).bindFromRequest();
+//        if (EstuForm.hasErrors()) {
+//
+//            return badRequest(crearEstudiant.render("Se han encontrado errores",
+//                    EstuForm, routes.ControllerEstudiant.indexE()));
+//        } else {
+        Estudiant estu = EstuForm.get();
+//           System.out.print("paso");
+//            estu.save();
+//            System.out.println("id de estudante: "+estu.id);
+        EstuForm = formFactory.form(Estudiant.class);
+////            llamamos aqui el metodo hecho en el grupo, para poder guardar estudiantes en el array en grupo  
+//            grupo.agregarCEstud(estu.id);
+//           
+//           System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmm "+estu);
+//
+//        }
+        return ok(crearEstudiant.render("LISTA", EstuForm,
+                routes.ControllerEstudiant.listaMostrarEstudiantes()));
+    }//Fian del método.
+
+    public Result listaMostrarEstudiantes() {
+        List<Estudiant> estud = Estudiant.find.all();
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class);
+        return ok(mostrarInfoEstudiante.render("Listado de estudiantes", estud, EstuForm));
+    }
 }//Fin de la clase
