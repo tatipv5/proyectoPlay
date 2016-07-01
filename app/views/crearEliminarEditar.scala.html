@@ -3,6 +3,7 @@
 
 @main(message) {
 
+
 <h1> Lista de estudiantes </h1>
 
 <ul class="list-group">
@@ -11,32 +12,32 @@
         <div class="btn-group pull-right" role="group" aria-label="...">
             <a href="@routes.ControllerEstudiant.editarEstudiantePost(estu.id)" 
                class="btn btn-success">Editar</a>
-                 <a href="@routes.ControllerEstudiant.EliminarEstudiante(estu.id)" 
+            <a href="@routes.ControllerEstudiant.EliminarEstudiante(estu.id)" 
                class="btn btn-success">Eliminar</a>
-           
+
         </div>
 
     </li>
     }
 </ul>
 
- <fieldset>
+<fieldset>
+        
+    <div class="row">
+        <div class="col-md-4">  @inputText( 
+            searchForm("cedula"),
+            '_label -> "Busca el estudiante",
+            '_help -> "Ingrese el id",
+            'class -> "form-control"
+            )</div>
 
-        <div class="row">
-            <div class="col-md-4">  @inputText( 
-                searchForm("buscar"),
-                '_label -> "Busca el estudiante",
-                '_help -> "Ingrese el id",
-                'class -> "form-control"
-                )</div>
-            
-         
+
         <nav class="form-actions text-center">
             <div class="form-actions text-center">
 
                 <br/>
                 <br/>
-                <a href="@routes.ControllerEstudiant.BuscarEstudiantePost(1)" 
+                <a href="@routes.ControllerEstudiant.BuscarEstudiantePost(estu.cedula)" 
                    class="btn btn-success">Buscar</a>
                 <br/>
                 <br/>
@@ -44,5 +45,4 @@
             <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
         </nav>
 
-
-}
+ }
