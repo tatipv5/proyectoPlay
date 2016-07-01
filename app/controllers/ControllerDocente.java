@@ -139,5 +139,33 @@ import views.html.*;
         return redirect(routes.ControllerDocente.listaInfoDocentes());
     }
      
+     //INFORMACIÓN
+     
+     public Result mostrarInfoGet(Long id) {
+        Docente instancia = Docente.find.byId(id);
+        Form<Docente> EstuForm = formFactory.form(Docente.class);
+        return ok(crearDocente.render("Informacion Estudiante.",
+                EstuForm,
+                routes.ControllerDocente.mostrarInfoPost(id)));   //Ingresar Routes
+    }//FIn 
+     
+     public Result mostrarInfoPost(Long id) {
+        Form<Docente> EstuForm = formFactory.form(Docente.class).bindFromRequest();
+
+        Docente docen = EstuForm.get();
+
+        EstuForm = formFactory.form(Docente.class);
+
+        return ok(crearDocente.render("LISTA", EstuForm,
+                routes.ControllerDocente.listaMostrarDocentes))); //Ingresar Routes
+    }//Fian del método.
+     
+     public Result listaMostrarDocentes() {
+        List<Docente> docen = Docente.find.all();
+        Form<Docente> EstuForm = formFactory.form(Docente.class);
+        return ok(mostrarInfoDocente.render("Listado de estudiantes", docen, EstuForm));
+    }//Fin 
+     
+     
     
     }//Fin de la clase.
