@@ -152,22 +152,33 @@ public class ControllerEstudiant extends Controller {
     //INFORMACION\
     public Result mostrarInfoGet(Long id) {
         Estudiant instancia = Estudiant.find.byId(id);
-        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
         return ok(crearEstudiant.render("Informacion Estudiante.",
                 EstuForm,
                 routes.ControllerEstudiant.mostrarInfoPost(id)));
     }//Fin
 
     public Result mostrarInfoPost(Long id) {
-        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).bindFromRequest();
-
-        Estudiant estu = EstuForm.get();
-
-        EstuForm = formFactory.form(Estudiant.class);
-
-        return ok(crearEstudiant.render("LISTA", EstuForm,
-                routes.ControllerEstudiant.listaMostrarEstudiantes()));
-    }//Fian del método.
+       Estudiant instancia = Estudiant.find.byId(id);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
+        ).fill(instancia).bindFromRequest();
+//        if (EstuForm.hasErrors()) {
+//            return badRequest(crearEstudiant.render(
+//                    "Encontramos errores", EstuForm,
+//                    routes.ControllerEstudiant.editarEstudiantePost(id)
+//            ));
+//        }
+//////        Estudiant estu = EstuForm.get();
+//////        instancia.id = estu.id;
+//////        instancia.nombre = estu.nombre;
+//////        instancia.direccion = estu.direccion;
+//////        instancia.cedula = estu.cedula;
+//////        instancia.telefono = estu.telefono;
+//////        instancia.requerida = estu.requerida;
+        //instancia.save();
+        return redirect(routes.ControllerEstudiant.listaEstudiantes());
+         
+    }
 //jaaja
     public Result listaMostrarEstudiantes() {
         List<Estudiant> estud = Estudiant.find.all();
