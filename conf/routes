@@ -114,3 +114,8 @@ POST    /informacionCurso/:id       controllers.ControllersCurso.InformacionCurs
 GET     /horarios                     controllers.HomeController.listaHorarios()
 #listinfogrupo
 GET     /listaInfoGrupo      controllers.ControllerGrupo.listaInfoGrupo()
+
+GET     /mostrarEstudiante/:id       controllers.ControllerEstudiant.mostrarInfoGet(id: Long)
+POST    /mostrarEstudiante/:id       controllers.ControllerEstudiant.mostrarInfoPost(id: Long)
+
+GET     /listaMostrarInfo     controllers.ControllerEstudiant.listaMostrarEstudiantes()
