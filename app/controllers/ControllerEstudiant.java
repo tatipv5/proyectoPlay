@@ -11,7 +11,6 @@ import play.data.FormFactory;
 import static play.mvc.Results.ok;
 import views.html.*;
 
-
 //ME CAGO EN TODO
 /**
  * This controller contains an action to handle HTTP requests to the
@@ -46,7 +45,6 @@ public class ControllerEstudiant extends Controller {
 
     public Result crearEstudiantesPost() {
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).bindFromRequest();
-        //models.Grupo instancia = models.Grupo.find.byId(id);
         if (EstuForm.hasErrors()) {
 
             return badRequest(crearEstudiant.render("Se han encontrado errores",
@@ -107,25 +105,25 @@ public class ControllerEstudiant extends Controller {
         return redirect(routes.ControllerEstudiant.listaEstudiantes());
     }
 
-    public Result BuscarEstudiantePost(Long id) {
-        Estudiant instancia = Estudiant.find.byId(id);
+    public Result BuscarEstudianteGet(String ced) {
+        Estudiant instancia = (Estudiant) Estudiant.find.db(ced);
+        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
+        return ok(crearEstudiant.render("estudiante",
+                EstuForm, routes.ControllerEstudiant.BuscarEstudiantePost(ced)));
+    }
+
+    public Result BuscarEstudiantePost(String ced) {
+        Estudiant instancia = (Estudiant) Estudiant.find.db(ced);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
         ).fill(instancia).bindFromRequest();
 
         if (EstuForm.hasErrors()) {
             return badRequest(crearEstudiant.render(
                     "Encontramos errores", EstuForm,
-                    routes.ControllerEstudiant.BuscarEstudiantePost(id)
+                    routes.ControllerEstudiant.BuscarEstudiantePost(ced)
             ));
         }
         return redirect(routes.ControllerEstudiant.listaEstudiantes());
-    }
-
-    public Result BuscarEstudianteGet(Long id) {
-        Estudiant instancia = Estudiant.find.byId(id);
-        Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
-        return ok(crearEstudiant.render("estudiante",
-                EstuForm, routes.ControllerEstudiant.BuscarEstudiantePost(id)));
     }
 
     public Result EliminarEstudiante(Long id) {
@@ -160,27 +158,14 @@ public class ControllerEstudiant extends Controller {
     }//Fin
 
     public Result mostrarInfoPost(Long id) {
-       Estudiant instancia = Estudiant.find.byId(id);
+        Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
         ).fill(instancia).bindFromRequest();
-//        if (EstuForm.hasErrors()) {
-//            return badRequest(crearEstudiant.render(
-//                    "Encontramos errores", EstuForm,
-//                    routes.ControllerEstudiant.editarEstudiantePost(id)
-//            ));
-//        }
-//////        Estudiant estu = EstuForm.get();
-//////        instancia.id = estu.id;
-//////        instancia.nombre = estu.nombre;
-//////        instancia.direccion = estu.direccion;
-//////        instancia.cedula = estu.cedula;
-//////        instancia.telefono = estu.telefono;
-//////        instancia.requerida = estu.requerida;
-        //instancia.save();
         return redirect(routes.ControllerEstudiant.listaEstudiantes());
-         
+
     }
 //jaaja
+
     public Result listaMostrarEstudiantes() {
         List<Estudiant> estud = Estudiant.find.all();
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class);
