@@ -28,8 +28,8 @@ GET     /eliminarEstudiante/:id       controllers.ControllerEstudiant.EliminarEs
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 #Buscar..NUEVO
-GET     /buscarEstudiante/:cedula       controllers.ControllerEstudiant.BuscarEstudianteGet(cedula: String)
-POST    /buscarEstudiante/:cedula       controllers.ControllerEstudiant.BuscarEstudiantePost(cedula: String)
+GET     /buscarEstudiante/:id       controllers.ControllerEstudiant.BuscarEstudianteGet(id: Long)
+POST    /buscarEstudiante/:id       controllers.ControllerEstudiant.BuscarEstudiantePost(id: Long)
 
 #info estudiante 
 GET     /informacionEstudiante/:id       controllers.ControllerEstudiant.InformacionEstudianteGet(id: Long)
