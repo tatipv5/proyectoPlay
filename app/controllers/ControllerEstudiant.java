@@ -11,6 +11,8 @@ import play.data.FormFactory;
 import static play.mvc.Results.ok;
 import views.html.*;
 
+
+//ME CAGO EN TODO
 /**
  * This controller contains an action to handle HTTP requests to the
  * application's home page.
@@ -166,7 +168,7 @@ public class ControllerEstudiant extends Controller {
         return ok(crearEstudiant.render("LISTA", EstuForm,
                 routes.ControllerEstudiant.listaMostrarEstudiantes()));
     }//Fian del método.
-
+//jaaja
     public Result listaMostrarEstudiantes() {
         List<Estudiant> estud = Estudiant.find.all();
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class);
