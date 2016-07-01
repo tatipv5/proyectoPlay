@@ -157,13 +157,13 @@ import views.html.*;
         EstuForm = formFactory.form(Docente.class);
 
         return ok(crearDocente.render("LISTA", EstuForm,
-                routes.ControllerDocente.listaMostrarDocentes))); //Ingresar Routes
+                routes.ControllerDocente.listaMostrarDocentes())); //Ingresar Routes
     }//Fian del método.
      
      public Result listaMostrarDocentes() {
         List<Docente> docen = Docente.find.all();
-        Form<Docente> EstuForm = formFactory.form(Docente.class);
-        return ok(mostrarInfoDocente.render("Listado de estudiantes", docen, EstuForm));
+        Form<Docente> docenForm = formFactory.form(Docente.class);
+        return ok(mostrarInfoDocente.render("Listado de docentes", docen, docenForm));
     }//Fin 
      
      

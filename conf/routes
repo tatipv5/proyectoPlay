@@ -120,9 +120,9 @@ GET     /mostrarEstudiante/:id       controllers.ControllerEstudiant.mostrarInfo
 POST    /mostrarEstudiante/:id       controllers.ControllerEstudiant.mostrarInfoPost(id: Long)
 GET     /listaMostrarInfo     controllers.ControllerEstudiant.listaMostrarEstudiantes()
 
-
+#mostrar info docente
 GET     /mostrarDocente/:id       controllers.ControllerDocente.mostrarInfoGet(id: Long)
 POST    /mostrarDocente/:id       controllers.ControllerDocente.mostrarInfoPost(id: Long)
-GET     /listaMostrarInfo     controllers.ControllerDocente.listaMostrarDocentes()
+GET     /listaMostrarInfoDocente     controllers.ControllerDocente.listaMostrarDocentes()
 
 
