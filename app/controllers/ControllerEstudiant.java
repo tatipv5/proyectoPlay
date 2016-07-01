@@ -105,15 +105,15 @@ public class ControllerEstudiant extends Controller {
         return redirect(routes.ControllerEstudiant.listaEstudiantes());
     }
 
-    public Result BuscarEstudianteGet(String ced) {
-        Estudiant instancia = (Estudiant) Estudiant.find.db(ced);
+    public Result BuscarEstudianteGet(Long ced) {
+        Estudiant instancia = (Estudiant) Estudiant.find.byId(ced);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
         return ok(crearEstudiant.render("estudiante",
                 EstuForm, routes.ControllerEstudiant.BuscarEstudiantePost(ced)));
     }
 
-    public Result BuscarEstudiantePost(String ced) {
-        Estudiant instancia = (Estudiant) Estudiant.find.db(ced);
+    public Result BuscarEstudiantePost(Long ced) {
+        Estudiant instancia = (Estudiant) Estudiant.find.byId(ced);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class
         ).fill(instancia).bindFromRequest();
 

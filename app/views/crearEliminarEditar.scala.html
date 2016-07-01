@@ -17,15 +17,19 @@
 
         </div>
 
-    </li>
-    }
-</ul>
-
-<fieldset>
+     
         
+        
+    </li>
+      
+        
+    }
+    </ul>
+     <fieldset>
+         
     <div class="row">
         <div class="col-md-4">  @inputText( 
-            searchForm("cedula"),
+            searchForm("id"),
             '_label -> "Busca el estudiante",
             '_help -> "Ingrese el id",
             'class -> "form-control"
@@ -37,12 +41,13 @@
 
                 <br/>
                 <br/>
-                <a href="@routes.ControllerEstudiant.BuscarEstudiantePost(estu.cedula)" 
+                <a href="@routes.ControllerEstudiant.BuscarEstudiantePost(1)" 
                    class="btn btn-success">Buscar</a>
                 <br/>
                 <br/>
             </div>
             <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
         </nav>
+        
 
  }
