@@ -54,7 +54,7 @@ public class ControllerEstudiant extends Controller {
             Estudiant estu = EstuForm.get();
            System.out.print("paso");
             estu.save();
-            System.out.println("id de estudante: "+estu.id);
+            System.out.println("id de estudiante: "+estu.id);
             EstuForm = formFactory.form(Estudiant.class);
 //            llamamos aqui el metodo hecho en el grupo, para poder guardar estudiantes en el array en grupo  
             grupo.agregarCEstud(estu.id);
