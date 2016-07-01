@@ -138,7 +138,7 @@ public class ControllerEstudiant extends Controller {
         Estudiant instancia = Estudiant.find.byId(id);
         Form<Estudiant> EstuForm = formFactory.form(Estudiant.class).fill(instancia);
         return ok(crearEstudiant.render("Formulario de estudiante",
-                EstuForm, routes.ControllerEstudiant.editarEstudiantePost(id)));
+                EstuForm, routes.ControllerEstudiant.InformacionEstudiantePost(id)));
     }
     //lol
 
