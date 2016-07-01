@@ -1,0 +1,52 @@
+@(message: String, estudi: List[Estudiant],searchForm:Form[Estudiant])
+@import helper._
+
+@main(message) {
+
+<h1> Lista de estudiantes </h1>
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-4"> @inputText(
+            searchForm("nombre"),
+            '_label -> "Nombre",
+            
+            'class -> "form-control"
+            )</div>
+        <div class="col-md-4">
+            @textarea(searchForm("direccion"),
+            
+            'class -> "form-control")
+        </div>
+        <div class="col-md-4">
+            @textarea(searchForm("cedula"),
+            
+            'class -> "form-control")
+        </div>
+        <div class="col-md-4">
+            @textarea(searchForm("telefono"),
+          
+            'class -> "form-control")
+        </div>
+    </div>
+
+
+
+    @input(searchForm("requerida")) { (id, name, value, args) =>
+
+    <select name="@name" id="@id" @toHtmlArgs(args)>
+            <option value="true" selected>I ciclo</option>
+        <option value="false">II ciclo</option>
+    </select>
+    }
+
+</fieldset>
+
+
+
+<div class="form-actions text-center">
+    <br/>
+    <br/>
+    <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+</div>
+}
