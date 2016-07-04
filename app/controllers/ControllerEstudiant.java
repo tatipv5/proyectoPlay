@@ -32,7 +32,7 @@ public class ControllerEstudiant extends Controller {
      * path of <code>/</code>.
      */
     public Result indexE() {
-
+//me escupo
         return ok(index.render("Gestion de Estudiantes"));
     }
 
