@@ -90,7 +90,9 @@ GET     /listaInfoGrupo            controllers.ControllerGrupo.listaInfoGrupo()
 GET     /informacionGrupo/:id       controllers.ControllerGrupo.InformacionGrupoGet(id: Long)
 POST    /informacionGrupo/:id       controllers.ControllerGrupo.InformacionGrupoPost(id: Long)
 
-
+GET     /mostrarGrupo/:id       controllers.ControllerGrupo.mostrarInfoGetGrupo(id: Long)
+POST    /mostrarGrupo/:id       controllers.ControllerGrupo.mostrarInfoPostGrupo(id: Long)
+GET     /listaMostrarInfoGrupo    controllers.ControllerGrupo.listaMostrarGrupo()
 #Eliminar 
 GET     /eliminarGrupo/:id       controllers.ControllerGrupo.EliminarGrupo(id: Long)
 
@@ -110,6 +112,9 @@ GET      /eliminarCurso/:id       controllers.ControllersCurso.eliminarCurso(id:
 GET     /informacionCurso/:id       controllers.ControllersCurso.InformacionCursoGet(id: Long)
 POST    /informacionCurso/:id       controllers.ControllersCurso.InformacionCursoPost(id: Long)
 
+GET     /mostrarCurso/:id       controllers.ControllersCurso.mostrarInfoGetCurso(id: Long)
+POST    /mostrarCurso/:id       controllers.ControllersCurso.mostrarInfoPostCurso(id: Long)
+GET     /listaMostrarInfoCurso    controllers.ControllersCurso.listaMostrarCurso()
 
 #horario
 GET     /horarios                     controllers.HomeController.listaHorarios()
@@ -121,8 +126,8 @@ POST    /mostrarEstudiante/:id       controllers.ControllerEstudiant.mostrarInfo
 GET     /listaMostrarInfo    controllers.ControllerEstudiant.listaMostrarEstudiantes()
 
 #mostrar info docente
-GET     /mostrarDocente/:id       controllers.ControllerDocente.mostrarInfoGet(id: Long)
-POST    /mostrarDocente/:id       controllers.ControllerDocente.mostrarInfoPost(id: Long)
+GET     /mostrarDocente/:id       controllers.ControllerDocente.mostrarInfoGetDocente(id: Long)
+POST    /mostrarDocente/:id       controllers.ControllerDocente.mostrarInfoPostDocente(id: Long)
 GET     /listaMostrarInfoDocente     controllers.ControllerDocente.listaMostrarDocentes()
 
 

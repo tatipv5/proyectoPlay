@@ -97,7 +97,7 @@ public class ControllerGrupo extends Controller {
         Grupo instancia = Grupo.find.byId(id);
         Form<Grupo> grupForm = formFactory.form(Grupo.class).fill(instancia);
         return ok(crearGrupo.render("Formulario de grupo",
-                grupForm, routes.ControllerGrupo.editarGrupoPost(id)));
+                grupForm, routes.ControllerGrupo.InformacionGrupoPost(id)));
     }
     //lol
 
@@ -112,5 +112,25 @@ public class ControllerGrupo extends Controller {
         Form<Grupo> grupForm = formFactory.form(Grupo.class);
         return ok(informacionGrupo.render("Listado de grupos", grup, grupForm));
     }
-
+   
+      
+      public Result mostrarInfoGetGrupo(Long id) {
+       Grupo instancia = Grupo.find.byId(id);
+       Form<Grupo> grupoForm = formFactory.form(Grupo.class).fill(instancia);
+       return ok(crearGrupo.render("Informacion Estudiante.",
+              grupoForm,
+              routes.ControllerGrupo.mostrarInfoPostGrupo(id)));
+        }//Fin
+      
+      public Result mostrarInfoPostGrupo(Long id) {
+        Grupo instancia = Grupo.find.byId(id);
+        Form<Grupo> grupoForm = formFactory.form(Grupo.class
+        ).fill(instancia).bindFromRequest();
+        return redirect(routes.ControllerGrupo.listaGrupos());
+      }
+       public Result listaMostrarGrupo() {
+        List<Grupo> grupo = Grupo.find.all();
+        Form<Grupo> grupoForm = formFactory.form(Grupo.class);
+        return ok(mostrarInfoGrupo.render("Listado de cursos", grupo, grupoForm));
+    }
 }

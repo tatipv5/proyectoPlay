@@ -91,17 +91,19 @@ public class ControllersCurso extends Controller {
         instancia.delete();
         return redirect(routes.ControllersCurso.listaCursos());
     } 
+    
+
     //infoCurso
     public Result InformacionCursoGet(Long id) {
         Curso instancia = Curso.find.byId(id);
-        Form<Curso> grupForm = formFactory.form(Curso.class).fill(instancia);
+        Form<Curso> cursoForm = formFactory.form(Curso.class).fill(instancia);
         return ok(crearCurso.render("Formulario de grupo",
-                grupForm, routes.ControllersCurso.editarCursoPost(id)));
+                cursoForm, routes.ControllersCurso.InformacionCursoPost(id)));
     }
  
     public Result InformacionCursoPost(Long id) {
         Curso instancia = Curso.find.byId(id);
-        Form<Curso> cursForm = formFactory.form(Curso.class
+        Form<Curso> cursoForm = formFactory.form(Curso.class
         ).fill(instancia).bindFromRequest();
         return redirect(routes.ControllersCurso.listaInfoCurso());
     }
@@ -110,5 +112,28 @@ public class ControllersCurso extends Controller {
         Form<Curso> cursForm = formFactory.form(Curso.class);
         return ok(informacionCurso.render("Listado de grupos", curs, cursForm));
     }
+      
+
+      
+      public Result mostrarInfoGetCurso(Long id) {
+       Curso instancia = Curso.find.byId(id);
+       Form<Curso> cursoForm = formFactory.form(Curso.class).fill(instancia);
+       return ok(crearCurso.render("Informacion Estudiante.",
+              cursoForm,
+              routes.ControllersCurso.mostrarInfoPostCurso(id)));
+        }//Fin
+      
+      public Result mostrarInfoPostCurso(Long id) {
+        Curso instancia = Curso.find.byId(id);
+        Form<Curso> cursoForm = formFactory.form(Curso.class
+        ).fill(instancia).bindFromRequest();
+        return redirect(routes.ControllersCurso.listaCursos());
+      }
+       public Result listaMostrarCurso() {
+        List<Curso> curso = Curso.find.all();
+        Form<Curso> cursoForm = formFactory.form(Curso.class);
+        return ok(mostrarInfoCurso.render("Listado de cursos", curso, cursoForm));
+    }
+      
 }
 
