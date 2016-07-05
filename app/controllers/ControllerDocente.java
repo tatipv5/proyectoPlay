@@ -124,12 +124,13 @@ import views.html.*;
     }
      
      
+     
      //Informacion docente
     public Result InformacionDocentesGet(Long id) {
         Docente instancia = Docente.find.byId(id);
         Form<Docente> DocenForm = formFactory.form(Docente.class).fill(instancia);
         return ok(crearDocente.render("Informacion Docente",
-               DocenForm, routes.ControllerDocente.EditarDocentePost(id)));
+               DocenForm, routes.ControllerDocente.InformacionDocentePost(id)));
     }
     
      public Result InformacionDocentePost(Long id) {
@@ -139,25 +140,19 @@ import views.html.*;
         return redirect(routes.ControllerDocente.listaInfoDocentes());
     }
      
-     //INFORMACIÓN
-     
-     public Result mostrarInfoGet(Long id) {
+ 
+     public Result mostrarInfoGetDocente(Long id) {
         Docente instancia = Docente.find.byId(id);
-        Form<Docente> EstuForm = formFactory.form(Docente.class);
+        Form<Docente> EstuForm = formFactory.form(Docente.class).fill(instancia);
         return ok(crearDocente.render("Informacion Estudiante.",
                 EstuForm,
-                routes.ControllerDocente.mostrarInfoPost(id)));   //Ingresar Routes
+                routes.ControllerDocente.mostrarInfoPostDocente(id)));   //Ingresar Routes
     }//FIn 
      
-     public Result mostrarInfoPost(Long id) {
-        Form<Docente> EstuForm = formFactory.form(Docente.class).bindFromRequest();
-
-        Docente docen = EstuForm.get();
-
-        EstuForm = formFactory.form(Docente.class);
-
-        return ok(crearDocente.render("LISTA", EstuForm,
-                routes.ControllerDocente.listaMostrarDocentes())); //Ingresar Routes
+     public Result mostrarInfoPostDocente(Long id) {
+         Docente instancia = Docente.find.byId(id);
+        Form<Docente> EstuForm = formFactory.form(Docente.class).fill(instancia).bindFromRequest();
+        return redirect(routes.ControllerDocente.listaMostrarDocentes()); //Ingresar Routes
     }//Fian del método.
      
      public Result listaMostrarDocentes() {
@@ -166,6 +161,7 @@ import views.html.*;
         return ok(mostrarInfoDocente.render("Listado de docentes", docen, docenForm));
     }//Fin 
      
+
      
     
     }//Fin de la clase.

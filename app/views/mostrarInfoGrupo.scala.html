@@ -1,0 +1,44 @@
+@(message: String, grupo: List[Grupo],searchForm:Form[Grupo])
+@import helper._
+
+@main(message) {
+
+<h1> Lista de Grupos</h1>
+
+<fieldset>
+
+    <div class="row">
+        <div class="col-md-4"> @inputText(
+            searchForm("nombre"),
+            '_label -> "Nombre",
+            '_help -> "required",
+            'class -> "form-control"
+            )</div>
+        
+       <div class="col-md-4"> @inputText(
+            searchForm("identificador"),
+            '_label -> "Identificador",
+            '_help -> "required",
+            'class -> "form-control"
+            )</div>
+       
+    </div>
+
+
+
+   
+   
+
+</fieldset>
+
+<div class="form-actions text-center">
+
+    <input type="submit" class="btn btn-success" value="Guardar") >
+</div>
+
+<div class="form-actions text-center">
+    <br/>
+    <br/>
+    <a href="@routes.HomeController.index()" class="btn btn-info ">Volver</a>          
+</div>
+}
