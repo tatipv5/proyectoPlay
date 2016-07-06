@@ -27,7 +27,7 @@ public class ControllerGrupo extends Controller {
  @Inject
     FormFactory formFactory;
  
- 
+ //lol
  public Result indexG() {
         
         return ok(index.render("Gestion Instituto") );
