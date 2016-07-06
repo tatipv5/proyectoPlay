@@ -46,7 +46,7 @@ public class AsyncController extends Controller {
     public CompletionStage<Result> message() {
         return getFutureMessage(1, TimeUnit.SECONDS).thenApplyAsync(Results::ok, exec);
     }
-
+    //lul
     private CompletionStage<String> getFutureMessage(long time, TimeUnit timeUnit) {
         CompletableFuture<String> future = new CompletableFuture<>();
         actorSystem.scheduler().scheduleOnce(
